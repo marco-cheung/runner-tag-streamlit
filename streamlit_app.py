@@ -34,4 +34,5 @@ if text_search:
             st.image(row['image_path'])
 
 else:
-    st.write(df)
+    #show image gallery from image url in dataframe column 'image_path'
+    st.image(df['image_path'].tolist(), width=300)
