@@ -19,7 +19,7 @@ st.write(df)
 text_search = st.text_input("Input Bib Number", value="")
 
 # Filter the dataframe using masks
-mask = df["bib_number"].str.contains(text_search)
+mask = df["bib_num"].str.contains(text_search)
 df_search = df[mask]
 
 
