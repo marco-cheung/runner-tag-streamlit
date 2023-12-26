@@ -6,6 +6,9 @@ import pandas as pd
 st.set_page_config(page_title="Running Photos - Bib Number Search Engine", page_icon="🏃", layout="wide")
 st.title("Bib Number Search Engine")
 
+# Use a text_input to get the keywords to filter the dataframe
+text_search = st.text_input("Input Bib Number", value="")
+
 # Connect to the Google Sheet
 sheet_id = "1AvZtnDy43gr6ttpokX-w5F5s-4KpapjFgQaR6tKkxgk"
 sheet_name = "hzmbhm2023"
@@ -14,9 +17,6 @@ df = pd.read_csv(url, dtype=str)
 
 # Show the dataframe (we'll delete this later)
 st.write(df)
-
-# Use a text_input to get the keywords to filter the dataframe
-text_search = st.text_input("Input Bib Number", value="")
 
 # Filter the dataframe using masks
 mask = df["bib_num"].str.contains(text_search)
