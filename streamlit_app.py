@@ -35,5 +35,4 @@ if text_search:
 
 else:
     #show image gallery from image url in dataframe column 'image_path' with some spaces between each image
-    N_cards_per_row = 3
-    st.image(df['image_path'].tolist(), width=200, use_column_width=True)
+    st.image(df['image_path'].tolist(), width=200)
