@@ -15,13 +15,9 @@ sheet_name = "hzmbhm2023"
 url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&sheet={sheet_name}"
 df = pd.read_csv(url, dtype=str)
 
-# Show the dataframe (we'll delete this later)
-st.write(df)
-
 # Filter the dataframe using masks
 mask = df["bib_num"].str.contains(text_search)
 df_search = df[mask]
-
 
 # Show the filtered results
 # Show the cards
@@ -35,4 +31,5 @@ if text_search:
         # draw the card
         with cols[n_row%N_cards_per_row]:
             st.caption(f"{row['event'].strip()} - {row['time'].strip()} ")
-            st.markdown(f"**{row['image_path']}**")
+            st.image(row['image_path'])  # change 'image_path' to 'image_url' or the correct column name in your spreadsheet
+            st.markdown(f"**{row['image_path']}**")  # change 'image_path' to 'image_url' or the correct column name in your spreadsheet
