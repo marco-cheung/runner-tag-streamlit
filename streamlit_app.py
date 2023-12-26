@@ -14,3 +14,25 @@ df = pd.read_csv(url, dtype=str)
 
 # Show the dataframe (we'll delete this later)
 st.write(df)
+
+# Use a text_input to get the keywords to filter the dataframe
+text_search = st.text_input("Input Bib Number", value="")
+
+# Filter the dataframe using masks
+mask = df["bib_number"].str.contains(text_search)
+df_search = df[mask]
+
+
+# Show the filtered results
+# Show the cards
+N_cards_per_row = 3
+if text_search:
+    for n_row, row in df_search.reset_index().iterrows():
+        i = n_row%N_cards_per_row
+        if i==0:
+            st.write("---")
+            cols = st.columns(N_cards_per_row, gap="large")
+        # draw the card
+        with cols[n_row%N_cards_per_row]:
+            st.caption(f"{row['event'].strip()} - {row['time'].strip()} ")
+            st.markdown(f"**{row['image_path']}**")
