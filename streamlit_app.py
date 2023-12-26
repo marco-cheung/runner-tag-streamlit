@@ -7,7 +7,7 @@ st.set_page_config(page_title="Running Photos - Bib Number Search Engine", page_
 st.title("Bib Number Search Engine")
 
 # Use a text_input to get the keywords to filter the dataframe
-text_search = st.text_input("Input Bib Number", value="")
+text_search = st.text_input("Input Bib Number", value="e.g. 7757")
 
 # Connect to the Google Sheet
 sheet_id = "1AvZtnDy43gr6ttpokX-w5F5s-4KpapjFgQaR6tKkxgk"
