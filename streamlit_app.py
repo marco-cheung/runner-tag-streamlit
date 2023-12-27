@@ -30,7 +30,7 @@ if text_search:
             cols = st.columns(N_cards_per_row, gap="large")
         # draw the card
         with cols[n_row%N_cards_per_row]:
-            st.caption(f"{row['event'].strip()} - {row['event_time'].strip()} ")
+            st.caption(f"{row['event_time'].strip()} - {row['event_time'].strip()} ")
             st.image(row['image_path'])
 
 else:
