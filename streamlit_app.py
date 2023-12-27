@@ -42,4 +42,4 @@ else:
             cols = st.columns(N_cards_per_row, gap="large")
         with cols[n_row%N_cards_per_row]:
             st.caption(f"{row['event'].strip()} - {row['time'].strip()} ")
-            st.image(row['image_path'], width=150)
+            st.image(row['image_path'], width=180)
