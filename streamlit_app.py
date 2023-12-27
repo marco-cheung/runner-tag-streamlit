@@ -16,7 +16,7 @@ url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&shee
 df = pd.read_csv(url, dtype=str)
 
 # Filter the dataframe using masks
-mask = df["bib_num"].str.contains("(" + "|".join(text_search) + ")")
+mask = df["bib_num"].str.contains(text_search)
 df_search = df[mask]
 
 # Show the filtered results
