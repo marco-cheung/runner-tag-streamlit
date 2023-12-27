@@ -21,7 +21,7 @@ df_search = df[mask]
 
 # Show the filtered results
 # Show the cards
-N_cards_per_row = 3
+N_cards_per_row = 5
 if text_search:
     for n_row, row in df_search.reset_index().iterrows():
         i = n_row%N_cards_per_row
@@ -42,4 +42,4 @@ else:
             cols = st.columns(N_cards_per_row, gap="large")
         with cols[n_row%N_cards_per_row]:
             st.caption(f"{row['event'].strip()} - {row['time'].strip()} ")
-            st.image(row['image_path'], width=300)
+            st.image(row['image_path'], width=100)
