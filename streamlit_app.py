@@ -37,21 +37,6 @@ total_pages = len(df) // images_per_page
 if len(df) % images_per_page:
     total_pages += 1
 
-# Add custom CSS style to display buttons side-by-side
-st.markdown(
-        """
-        <style>
-        .button-container {
-            float: right !important;
-            margin-left: 10px;
-            display: flex;
-            justify-content: flex-end;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-    
 # Define functions to increment and decrement page number
 def increment_page():
     st.session_state.page += 1
@@ -60,10 +45,13 @@ def decrement_page():
     st.session_state.page -= 1
 
 # Add buttons for page navigation
-st.markdown('<div class="button-container">', unsafe_allow_html=True)
-st.button("◀", on_click=decrement_page)
-st.button("▶", on_click=increment_page)
-st.markdown('</div>', unsafe_allow_html=True)
+# Centering the buttons 
+col1, col2 = st.beta_columns([.5,1])
+if st.session_state.page > 1:
+    col1.button("◀", on_click=decrement_page)
+
+if st.session_state.page < total_pages:
+    col2.button("▶", on_click=increment_page)
    
 
 # Filter dataframe for the selected page
