@@ -63,7 +63,7 @@ if st.session_state.page < total_pages:
 with col4:
     # Display the current page number out of the total number of pages
     current_page = st.session_state.page
-    st.markdown(f"<p style='font-size:16px;'>{current_page}/{total_pages}</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages}</p>", unsafe_allow_html=True)
 
 
 # Filter dataframe for the selected page
