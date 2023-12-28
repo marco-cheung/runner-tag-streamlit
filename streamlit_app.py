@@ -37,10 +37,23 @@ if len(df) % images_per_page:
 if 'page' not in st.session_state:
     st.session_state.page = 1
 
-# Filter dataframe for the selected page
-start_index = (st.session_state.page - 1) * images_per_page
-end_index = start_index + images_per_page
-subset_df = df.iloc[start_index: end_index]
+def show_images(df, page):
+    # Filter dataframe for the selected page
+    start_index = (page - 1) * images_per_page
+    end_index = start_index + images_per_page
+    subset_df = df.iloc[start_index: end_index]
+
+    # Display the images from the subset dataframe
+    for n_row, row in subset_df.iterrows():
+        i = n_row%N_cards_per_row
+        if i==0:
+            st.write("---")
+            cols = st.columns(N_cards_per_row, gap="large")
+        with cols[n_row%N_cards_per_row]:
+            response = requests.get(row['image_path'])
+            img = Image.open(BytesIO(response.content))
+            st.caption(f"{row['event'].strip()} - {row['event_time'].strip()} ")
+            st.image(img, width=180)
 
 # Show the filtered results
 if text_search:
@@ -55,23 +68,15 @@ if text_search:
             st.image(row['image_path'])
 
 else:
-    # Display the images from the subset dataframe
-    for n_row, row in subset_df.iterrows():
-        i = n_row%N_cards_per_row
-        if i==0:
-            st.write("---")
-            cols = st.columns(N_cards_per_row, gap="large")
-        with cols[n_row%N_cards_per_row]:
-            response = requests.get(row['image_path'])
-            img = Image.open(BytesIO(response.content))
-            st.caption(f"{row['event'].strip()} - {row['event_time'].strip()} ")
-            st.image(img, width=180)
+    show_images(df, st.session_state.page)
 
 # Create "Previous" and "Next" buttons and update the page number in the session state
 prev_button, next_button = st.columns(2)
 if prev_button.button('Previous'):
     if st.session_state.page > 1:
         st.session_state.page -= 1
+        show_images(df, st.session_state.page)
 if next_button.button('Next'):
     if st.session_state.page < total_pages:
         st.session_state.page += 1
+        show_images(df, st.session_state.page)
