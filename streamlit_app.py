@@ -44,15 +44,35 @@ def increment_page():
 def decrement_page():
     st.session_state.page -= 1
 
-# Add buttons for page navigation
-# Centering the buttons 
-col1, col2, col3 = st.columns([97,2,1])
-if st.session_state.page > 1:
-    col2.button("◀", on_click=decrement_page)
+# Add CSS styling to position the buttons
+st.markdown(
+    """
+    <style>
+    .button-container {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .button-container .button {
+        margin-left: 10px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
-if st.session_state.page < total_pages:
-    col3.button("▶", on_click=increment_page)
-    
+# Create the button container
+button_container = st.sidebar.empty()
+
+# Add buttons for page navigation
+# Place the buttons in the container
+with button_container.container():
+    col1, col2 = st.columns(2)
+    if st.session_state.page > 1:
+        col1.button("◀", on_click=decrement_page)
+
+    if st.session_state.page < total_pages:
+        col2.button("▶", on_click=increment_page)
+   
 
 # Filter dataframe for the selected page
 start_index = (st.session_state.page - 1) * images_per_page
