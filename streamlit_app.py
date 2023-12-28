@@ -37,13 +37,13 @@ total_pages = len(df) // images_per_page
 if len(df) % images_per_page:
     total_pages += 1
 
-# Add custom CSS style to position buttons on the right side
+# Add custom CSS style to display buttons side-by-side
 st.markdown(
         """
         <style>
-        .stButton>button {
-            float: right !important;
-            margin-left: 10px;
+        .button-container {
+            display: flex;
+            justify-content: flex-end;
         }
         </style>
         """,
