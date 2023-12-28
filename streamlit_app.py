@@ -45,7 +45,7 @@ if len(df) % images_per_page:
 
 
 # Add buttons for page navigation
-col1, col2, col3, col4, col5 = st.columns([8,8,.3,.5,.3])
+col1, col2, col3, col4, col5 = st.columns([8,8,.4,.5,.3])
 
 # Define functions to increment and decrement page number
 def increment_page():
