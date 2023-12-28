@@ -55,7 +55,13 @@ if text_search:
 
 else:
     # Display the images from the subset dataframe
-    for i, row in subset_df.iterrows():
-        response = requests.get(row['image_path'])
-        img = Image.open(BytesIO(response.content))
-        st.image(img, caption=f"Image {i+1}")
+    for n_row, row in df.reset_index().iterrows():
+        i = n_row%N_cards_per_row
+        if i==0:
+            st.write("---")
+            cols = st.columns(N_cards_per_row, gap="large")
+        with cols[n_row%N_cards_per_row]:
+            response = requests.get(row['image_path'])
+            img = Image.open(BytesIO(response.content))
+            st.caption(f"{row['event'].strip()} - {row['event_time'].strip()} ")
+            st.image(img, width=180)
