@@ -1,6 +1,9 @@
 # Import libraries
 import streamlit as st
 import pandas as pd
+from PIL import Image
+import requests
+from io import BytesIO
 
 # Page setup
 st.set_page_config(page_title="Running Photos - Bib Number Search Engine", page_icon="🏃", layout="wide")
@@ -19,9 +22,25 @@ df = pd.read_csv(url, dtype=str)
 mask = df["bib_num"].str.contains(text_search)
 df_search = df[mask]
 
-# Show the filtered results
 # Show the cards
 N_cards_per_row = 3
+
+# Number of images per page
+images_per_page = 15
+
+# Calculate the number of pages
+num_pages = len(df) // images_per_page
+if len(df) % images_per_page:
+    num_pages += 1
+
+# Create a selection box for the page number
+page = st.selectbox('Select page', options=range(1, num_pages + 1))
+
+# Calculate start and end indices for image paths
+start = (page - 1) * images_per_page
+end = start + images_per_page
+
+# Show the filtered results
 if text_search:
     for n_row, row in df_search.reset_index().iterrows():
         i = n_row%N_cards_per_row
@@ -34,12 +53,9 @@ if text_search:
             st.image(row['image_path'])
 
 else:
-    #show image gallery from image url in dataframe columns
-    for n_row, row in df.reset_index().iterrows():
-        i = n_row%N_cards_per_row
-        if i==0:
-            st.write("---")
-            cols = st.columns(N_cards_per_row, gap="large")
-        with cols[n_row%N_cards_per_row]:
-            st.caption(f"{row['event'].strip()} - {row['event_time'].strip()} ")
-            st.image(row['image_path'], width=180)
+    # Display images for the selected page
+    for _, row in df.iloc[start:end].iterrows():
+        image_url = row['image_path']
+        response = requests.get(image_url)
+        image = Image.open(BytesIO(response.content))
+        st.image(image)
