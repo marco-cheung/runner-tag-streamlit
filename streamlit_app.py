@@ -42,6 +42,8 @@ st.markdown(
         """
         <style>
         .button-container {
+            float: right !important;
+            margin-left: 10px;
             display: flex;
             justify-content: flex-end;
         }
@@ -49,7 +51,7 @@ st.markdown(
         """,
         unsafe_allow_html=True
     )
-
+    
 # Define functions to increment and decrement page number
 def increment_page():
     st.session_state.page += 1
