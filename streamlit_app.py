@@ -38,6 +38,9 @@ N_cards_per_row = 3
 # Number of images per page
 images_per_page = 15
 
+# Get the current page number
+current_page = st.session_state.page
+
 def calculate_total_pages(df, images_per_page):
     total_pages = len(df) // images_per_page
     if len(df) % images_per_page:
@@ -49,7 +52,6 @@ total_pages = calculate_total_pages(df, images_per_page)
 
 # Calculate the total number of pages (based on the filtered dataframe)
 total_pages_df_search = calculate_total_pages(df_search, images_per_page)
-
 
 # Add buttons for page navigation
 col1, col2, col3, col4, col5 = st.columns([8,8,.9,.8,.2])
@@ -66,11 +68,6 @@ if st.session_state.page > 1:
 
 if st.session_state.page < total_pages:
     col5.button("▶", on_click=increment_page)
-
-with col4:
-    # Display the current page number out of the total number of pages
-    current_page = st.session_state.page
-    st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages}</p>", unsafe_allow_html=True)
 
 
 # Filter dataframe for the selected page
@@ -105,3 +102,7 @@ else:
         with cols[n_row%N_cards_per_row]:
             st.caption(f"{row['event'].strip()} - {row['event_time'].strip()} ")
             st.image(row['image_path'], width=200)
+
+    with col4:
+        # Display the current page number out of the total number of pages
+         st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages}</p>", unsafe_allow_html=True)
