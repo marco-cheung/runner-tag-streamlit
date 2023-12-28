@@ -9,10 +9,19 @@ from io import BytesIO
 st.set_page_config(page_title="Running Photos - Bib Number Search 號碼布搵相", page_icon="🏃", layout="wide")
 st.title("Bib Number Search 號碼布搵相")
 
-# Use a text_input to get the keywords to filter the dataframe
-with st.sidebar.form(key ='Form'):
-    text_search = st.text_input("Input Bib Number 請輸入號碼布編號", placeholder='例子 Example: 7757')
-    submitted = st.form_submit_button(label = 'Search 搜尋🔎')
+with st.form('input_form'):
+    # Create two columns; adjust the ratio to your liking
+    col1, col2 = st.columns([3,1]) 
+
+    # Use the first column for text input
+    with col1:
+        # Use a text_input to get the keywords to filter the dataframe
+        text_search = st.text_input("Input Bib Number 請輸入號碼布編號", placeholder='例子 Example: 7757', label_visibility='collapsed')
+    
+    # Use the second column for the submit button
+    with col2:
+        submitted = st.form_submit_button('Search 搜尋🔎')
+
 
 # Set the font size of the textbox using markdown
 st.markdown(
