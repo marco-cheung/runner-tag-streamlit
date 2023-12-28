@@ -14,7 +14,7 @@ text_search = st.text_input("Input Bib Number 請輸入號碼布編號", placeho
 
 # Set the font size of the textbox using markdown
 st.markdown(
-    f'<style>input[type="text"] {{ font-size: 16px; }}</style>',
+    f'<style>input[type="text"] {{ font-size: 20px; }}</style>',
     unsafe_allow_html=True
 )
 
@@ -45,7 +45,7 @@ if len(df) % images_per_page:
 
 
 # Add buttons for page navigation
-col1, col2, col3, col4 = st.columns([8,.3,1,.3])
+col1, col2, col3, col4 = st.columns([8,.3,1,.1])
 
 # Define functions to increment and decrement page number
 def increment_page():
