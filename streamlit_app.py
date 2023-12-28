@@ -53,17 +53,20 @@ st.markdown(
 # Define functions to increment and decrement page number
 def increment_page():
     st.session_state.page += 1
-
 def decrement_page():
     st.session_state.page -= 1
 
 # Add buttons for page navigation
+st.markdown('<div class="button-container">', unsafe_allow_html=True)
+
 if st.session_state.page > 1:
     st.button("◀", on_click=decrement_page)
 
 if st.session_state.page < total_pages:
     st.button("▶", on_click=increment_page)
-   
+
+st.markdown('</div>', unsafe_allow_html=True)
+
 
 # Filter dataframe for the selected page
 start_index = (st.session_state.page - 1) * images_per_page
