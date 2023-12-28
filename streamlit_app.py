@@ -77,7 +77,5 @@ else:
             st.write("---")
             cols = st.columns(N_cards_per_row, gap="large")
         with cols[n_row%N_cards_per_row]:
-            response = requests.get(row['image_path'])
-            img = Image.open(BytesIO(response.content))
             st.caption(f"{row['event'].strip()} - {row['event_time'].strip()} ")
-            st.image(img, width=180)
+            st.image(row['image_path'], width=180)
