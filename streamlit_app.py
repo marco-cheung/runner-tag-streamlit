@@ -10,7 +10,7 @@ st.set_page_config(page_title="Running Photos - Bib Number Search Engine", page_
 st.title("Bib Number Search Engine")
 
 # Use a text_input to get the keywords to filter the dataframe
-text_search = st.text_input("Input Bib Number", placeholder = 'e.g. 7757')
+text_search = st.text_input("Input Bib Number", placeholder='e.g. 7757')
 
 # Connect to the Google Sheet
 sheet_id = "1AvZtnDy43gr6ttpokX-w5F5s-4KpapjFgQaR6tKkxgk"
@@ -43,24 +43,26 @@ subset_df = df.iloc[start_index: end_index]
 
 # Show the filtered results
 if text_search:
+    container = st.beta_container()
     for n_row, row in df_search.reset_index().iterrows():
-        i = n_row%N_cards_per_row
-        if i==0:
-            st.write("---")
-            cols = st.columns(N_cards_per_row, gap="large")
+        i = n_row % N_cards_per_row
+        if i == 0:
+            container.write("---")
+            cols = container.beta_columns(N_cards_per_row, gap="large")
         # draw the card
-        with cols[n_row%N_cards_per_row]:
+        with cols[n_row % N_cards_per_row]:
             st.caption(f"{row['event'].strip()} - {row['event_time'].strip()} ")
             st.image(row['image_path'])
 
 else:
+    container = st.beta_container()
     # Display the images from the subset dataframe
-    for n_row, row in df.reset_index().iterrows():
-        i = n_row%N_cards_per_row
-        if i==0:
-            st.write("---")
-            cols = st.columns(N_cards_per_row, gap="large")
-        with cols[n_row%N_cards_per_row]:
+    for n_row, row in subset_df.reset_index().iterrows():
+        i = n_row % N_cards_per_row
+        if i == 0:
+            container.write("---")
+            cols = container.beta_columns(N_cards_per_row, gap="large")
+        with cols[n_row % N_cards_per_row]:
             response = requests.get(row['image_path'])
             img = Image.open(BytesIO(response.content))
             st.caption(f"{row['event'].strip()} - {row['event_time'].strip()} ")
