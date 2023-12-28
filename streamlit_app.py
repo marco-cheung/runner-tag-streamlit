@@ -45,13 +45,11 @@ def decrement_page():
     st.session_state.page -= 1
 
 # Add buttons for page navigation
-# Centering the buttons 
-col1, col2, col3 = st.columns([1,1,10])
 if st.session_state.page > 1:
-    col2.button("<", on_click=decrement_page)
+    st.button("<", on_click=decrement_page)
 
 if st.session_state.page < total_pages:
-    col3.button(">", on_click=increment_page)
+    st.button(">", on_click=increment_page)
     
 
 # Filter dataframe for the selected page
