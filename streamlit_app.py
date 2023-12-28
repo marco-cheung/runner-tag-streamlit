@@ -45,7 +45,7 @@ if len(df) % images_per_page:
 
 
 # Add buttons for page navigation
-col1, col2, col3, col4, col5 = st.columns([8,8,.5,.5,.3])
+col1, col2, col3, col4, col5 = st.columns([8,8,.6,.5,.3])
 
 # Define functions to increment and decrement page number
 def increment_page():
@@ -63,7 +63,7 @@ if st.session_state.page < total_pages:
 with col4:
     # Display the current page number out of the total number of pages
     current_page = st.session_state.page
-    st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages}</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='font-size:16px;'>{current_page}/{total_pages}</p>", unsafe_allow_html=True)
 
 
 # Filter dataframe for the selected page
