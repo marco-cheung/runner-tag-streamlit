@@ -12,6 +12,10 @@ st.title("Bib Number Search Engine")
 # Use a text_input to get the keywords to filter the dataframe
 text_search = st.text_input("Input Bib Number", placeholder = 'e.g. 7757')
 
+# Initialize session state
+if 'page' not in st.session_state:
+    st.session_state.page = 1
+
 # Connect to the Google Sheet
 sheet_id = "1AvZtnDy43gr6ttpokX-w5F5s-4KpapjFgQaR6tKkxgk"
 sheet_name = "hzmbhm2023"
