@@ -45,19 +45,9 @@ def decrement_page():
     st.session_state.page -= 1
 
 # Add buttons for page navigation
-col1, col2, col3 = st.columns([8,1,1])
+col1, col2, col3 = st.columns([8,.5,1])
 if st.session_state.page > 1:
     col2.button("◀", on_click=decrement_page)
-
-st.write(
-    """<style>
-    [data-testid="stHorizontalBlock"] {
-        align-items: right;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 
 if st.session_state.page < total_pages:
     col3.button("▶", on_click=increment_page)
