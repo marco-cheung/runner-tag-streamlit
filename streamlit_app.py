@@ -10,7 +10,13 @@ st.set_page_config(page_title="Running Photos - Bib Number Search 號碼布搵�
 st.title("Bib Number Search 號碼布搵相")
 
 # Use a text_input to get the keywords to filter the dataframe
-text_search = st.text_input("Input Bib Number 請輸入號碼布編號", placeholder='例子 Example: 7757', style=f"font-size: 16px;")
+text_search = st.text_input("Input Bib Number 請輸入號碼布編號", placeholder='例子 Example: 7757')
+
+# Set the font size of the textbox using markdown
+st.markdown(
+    f'<style>input[type="text"] {{ font-size: 16px; }}</style>',
+    unsafe_allow_html=True
+)
 
 # Initialize session state
 if 'page' not in st.session_state:
