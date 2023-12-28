@@ -49,9 +49,19 @@ col1, col2, col3 = st.columns([8,1,1])
 if st.session_state.page > 1:
     col2.button("◀", on_click=decrement_page)
 
+st.write(
+    """<style>
+    [data-testid="stHorizontalBlock"] {
+        align-items: right;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 if st.session_state.page < total_pages:
     col3.button("▶", on_click=increment_page)
-   
+
 
 # Filter dataframe for the selected page
 start_index = (st.session_state.page - 1) * images_per_page
