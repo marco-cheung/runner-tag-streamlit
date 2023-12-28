@@ -53,10 +53,10 @@ if st.session_state.page > 1:
 
 if st.session_state.page < total_pages:
     col3.button("▶", on_click=increment_page)
+    # Display the current page number out of the total number of pages
+    current_page = st.session_state.page
+    st.write(f"{current_page}/{total_pages}")
 
-# Display the current page number out of the total number of pages
-current_page = st.session_state.page
-st.write(f"{current_page}/{total_pages}")
 
 # Filter dataframe for the selected page
 start_index = (st.session_state.page - 1) * images_per_page
