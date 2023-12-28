@@ -33,11 +33,12 @@ total_pages = len(df) // images_per_page
 if len(df) % images_per_page:
     total_pages += 1
 
-# Add a selection box for page navigation
-page = st.selectbox('Select a page', options=list(range(1, total_pages + 1)))
+# Create a variable in the session state for the page number
+if 'page' not in st.session_state:
+    st.session_state.page = 1
 
 # Filter dataframe for the selected page
-start_index = (page - 1) * images_per_page
+start_index = (st.session_state.page - 1) * images_per_page
 end_index = start_index + images_per_page
 subset_df = df.iloc[start_index: end_index]
 
@@ -65,3 +66,12 @@ else:
             img = Image.open(BytesIO(response.content))
             st.caption(f"{row['event'].strip()} - {row['event_time'].strip()} ")
             st.image(img, width=180)
+
+# Create "Previous" and "Next" buttons and update the page number in the session state
+prev_button, next_button = st.columns(2)
+if prev_button.button('Previous'):
+    if st.session_state.page > 1:
+        st.session_state.page -= 1
+if next_button.button('Next'):
+    if st.session_state.page < total_pages:
+        st.session_state.page += 1
