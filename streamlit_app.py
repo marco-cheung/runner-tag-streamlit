@@ -10,7 +10,8 @@ st.set_page_config(page_title="Running Photos - Bib Number Search 號碼布搵�
 st.title("Bib Number Search 號碼布搵相")
 
 # Use a text_input to get the keywords to filter the dataframe
-text_search = st.text_input("Input Bib Number 請輸入號碼布編號", placeholder='例子 Example: 7757')
+with st.sidebar.form(key ='Form'):
+    text_search = st.text_input("Input Bib Number 請輸入號碼布編號", placeholder='例子 Example: 7757')
 
 # Set the font size of the textbox using markdown
 st.markdown(
