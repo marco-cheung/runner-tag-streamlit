@@ -46,10 +46,10 @@ def decrement_page():
 
 # Add buttons for page navigation
 if st.session_state.page > 1:
-    st.button("Previous", on_click=decrement_page)
+    st.button("Previous Page", on_click=decrement_page)
 
 if st.session_state.page < total_pages:
-    st.button("Next", on_click=increment_page)
+    st.button("Next Page", on_click=increment_page)
 
 # Filter dataframe for the selected page
 start_index = (st.session_state.page - 1) * images_per_page
