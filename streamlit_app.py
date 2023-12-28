@@ -46,7 +46,7 @@ def decrement_page():
 
 # Add buttons for page navigation
 # Centering the buttons 
-col1, col2 = st.beta_columns([.5,1])
+col1, col2 = st.columns([.5,1])
 if st.session_state.page > 1:
     col1.button("◀", on_click=decrement_page)
 
