@@ -28,17 +28,18 @@ N_cards_per_row = 3
 # Number of images per page
 images_per_page = 15
 
-# Calculate the number of pages
-num_pages = len(df) // images_per_page
+# Calculate the total number of pages
+total_pages = len(df) // images_per_page
 if len(df) % images_per_page:
-    num_pages += 1
+    total_pages += 1
 
-# Create a selection box for the page number
-page = st.selectbox('Select page', options=range(1, num_pages + 1))
+# Add a selection box for page navigation
+page = st.selectbox('Select a page', options=list(range(1, total_pages + 1)))
 
-# Calculate start and end indices for image paths
-start = (page - 1) * images_per_page
-end = start + images_per_page
+# Filter dataframe for the selected page
+start_index = (page - 1) * images_per_page
+end_index = start_index + images_per_page
+subset_df = df.iloc[start_index: end_index]
 
 # Show the filtered results
 if text_search:
@@ -53,9 +54,8 @@ if text_search:
             st.image(row['image_path'])
 
 else:
-    # Display images for the selected page
-    for _, row in df.iloc[start:end].iterrows():
-        image_url = row['image_path']
-        response = requests.get(image_url)
-        image = Image.open(BytesIO(response.content))
-        st.image(image)
+    # Display the images from the subset dataframe
+    for i, row in subset_df.iterrows():
+        response = requests.get(row['image_path'])
+        img = Image.open(BytesIO(response.content))
+        st.image(img, caption=f"Image {i+1}")
