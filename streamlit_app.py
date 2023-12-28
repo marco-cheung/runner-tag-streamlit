@@ -51,6 +51,9 @@ st.markdown(
     .button-container {
         display: flex;
         justify-content: flex-end;
+        align-items: flex-start;
+        margin-top: 10px;
+        margin-right: 10px;
     }
     .button-container .button {
         margin-left: 10px;
@@ -66,12 +69,14 @@ button_container = st.sidebar.empty()
 # Add buttons for page navigation
 # Place the buttons in the container
 with button_container.container():
-    col1, col2 = st.columns(2)
+    st.markdown('<div class="button-container">', unsafe_allow_html=True)
     if st.session_state.page > 1:
-        col1.button("◀", on_click=decrement_page)
+        st.button("◀", on_click=decrement_page, key="prev_button")
 
     if st.session_state.page < total_pages:
-        col2.button("▶", on_click=increment_page)
+        st.button("▶", on_click=increment_page, key="next_button")
+        
+    st.markdown('</div>', unsafe_allow_html=True)
    
 
 # Filter dataframe for the selected page
