@@ -38,10 +38,17 @@ N_cards_per_row = 3
 # Number of images per page
 images_per_page = 15
 
+def calculate_total_pages(df, images_per_page):
+    total_pages = len(df) // images_per_page
+    if len(df) % images_per_page:
+        total_pages += 1
+    return total_pages
+
 # Calculate the total number of pages
-total_pages = len(df) // images_per_page
-if len(df) % images_per_page:
-    total_pages += 1
+total_pages = calculate_total_pages(df, images_per_page)
+
+# Calculate the total number of pages (based on the filtered dataframe)
+total_pages_df_search = calculate_total_pages(df_search, images_per_page)
 
 
 # Add buttons for page navigation
@@ -83,6 +90,10 @@ if text_search:
         with cols[n_row%N_cards_per_row]:
             st.caption(f"{row['event'].strip()} - {row['event_time'].strip()} ")
             st.image(row['image_path'])
+    
+    # Display the current page number out of the total number of pages for the filtered dataframe
+    with col4:
+        st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages_df_search}</p>", unsafe_allow_html=True)
 
 else:
     # Display the images from the subset dataframe
