@@ -33,8 +33,8 @@ total_pages = len(df) // images_per_page
 if len(df) % images_per_page:
     total_pages += 1
 
-# Add a selection box for page navigation
-page = st.selectbox('Select a page', options=list(range(1, total_pages + 1)))
+# Add buttons for page navigation
+page = st.number_input('Page', min_value=1, max_value=total_pages, value=1)
 
 # Filter dataframe for the selected page
 start_index = (page - 1) * images_per_page
