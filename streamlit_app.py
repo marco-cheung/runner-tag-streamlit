@@ -25,7 +25,7 @@ with st.form('input_form'):
 
 # Set the font size of the textbox using markdown
 st.markdown(
-    f'<style>input[type="text"] {{ font-size: 20px; }}</style>',
+    f'<style>input[type="text"] {{ font-size: 18px; }}</style>',
     unsafe_allow_html=True
 )
 
