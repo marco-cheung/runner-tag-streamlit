@@ -37,18 +37,22 @@ total_pages = len(df) // images_per_page
 if len(df) % images_per_page:
     total_pages += 1
 
-# Add buttons for page navigation
-page = st.number_input('Page', min_value=1, max_value=total_pages, value=1)
+# Define functions to increment and decrement page number
+def increment_page():
+    st.session_state.page += 1
+
+def decrement_page():
+    st.session_state.page -= 1
 
 # Add buttons for page navigation
-if page > 1:
-    st.button("Previous", on_click=lambda: st.session_state.page -= 1)
+if st.session_state.page > 1:
+    st.button("Previous", on_click=decrement_page)
 
-if page < total_pages:
-    st.button("Next", on_click=lambda: st.session_state.page += 1)
+if st.session_state.page < total_pages:
+    st.button("Next", on_click=increment_page)
 
 # Filter dataframe for the selected page
-start_index = (page - 1) * images_per_page
+start_index = (st.session_state.page - 1) * images_per_page
 end_index = start_index + images_per_page
 subset_df = df.iloc[start_index: end_index]
 
