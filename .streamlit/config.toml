@@ -4,7 +4,7 @@
 primaryColor = '#7792E3'
 
 # Background color for the main content area
-backgroundColor = '#add8e6'
+backgroundColor = '#F0FFFF'
 
 # Color used for almost all text
 textColor = '#000000'
