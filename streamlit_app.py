@@ -12,6 +12,7 @@ st.title("Bib Number Search 號碼布搵相")
 # Use a text_input to get the keywords to filter the dataframe
 with st.sidebar.form(key ='Form'):
     text_search = st.text_input("Input Bib Number 請輸入號碼布編號", placeholder='例子 Example: 7757')
+    submitted = st.form_submit_button(label = 'Search 搜尋🔎')
 
 # Set the font size of the textbox using markdown
 st.markdown(
