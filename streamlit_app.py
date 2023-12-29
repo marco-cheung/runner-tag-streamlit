@@ -95,7 +95,8 @@ def decrement_page():
     st.session_state.page -= 1
 
 if st.session_state.page > 1:
-    col3.button("◀", on_click=decrement_page)
+    if (text_search and len(df_search) > 0) or not text_search:
+        col3.button("◀", on_click=decrement_page)
 
 if st.session_state.page < total_pages:
     if (text_search and len(df_search) > 0) or not text_search:
