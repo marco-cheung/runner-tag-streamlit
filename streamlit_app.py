@@ -10,7 +10,7 @@ st.set_page_config(page_title="Running Photos - Bib Number Search 號碼布搵�
 
 # Create two columns to add image icon and header on the same row
 col1, col2 = st.columns(2)
-col1.image("https://github.com/marco-cheung/runner-tag-streamlit/blob/main/.streamlit/running-bib-icon.png", width=100)
+col1.image("https://raw.githubusercontent.com/marco-cheung/runner-tag-streamlit/main/.streamlit/running-bib-icon.png", width=100)
 col2.header("Bib Number Search 號碼布搵相")
 
 
