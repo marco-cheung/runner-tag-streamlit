@@ -83,34 +83,31 @@ def calculate_total_pages(df, images_per_page):
     return total_pages
 
 total_pages = calculate_total_pages(df, images_per_page)
-total_pages_search = calculate_total_pages(df_search, images_per_page)
 
 
-# Add buttons for page navigation
-col1, col2, col3, col4, col5 = st.columns([8,8,.9,1,.2])
+# Only show page navigation if text_search is empty
+if not text_search:
+    # Add buttons for page navigation
+    col1, col2, col3, col4, col5 = st.columns([8,8,.9,1,.2])
 
-# Define functions to increment and decrement page number
-def increment_page():
-    st.session_state.page += 1
+    # Define functions to increment and decrement page number
+    def increment_page():
+        st.session_state.page += 1
 
-def decrement_page():
-    st.session_state.page -= 1
+    def decrement_page():
+        st.session_state.page -= 1
 
-if st.session_state.page > 1:
-    col3.button("◀", on_click=decrement_page)
+    if st.session_state.page > 1:
+        col3.button("◀", on_click=decrement_page)
 
-if st.session_state.page < total_pages:
-    col5.button("▶", on_click=increment_page)
+    if st.session_state.page < total_pages:
+        col5.button("▶", on_click=increment_page)
 
-with col4:
-    # Display the current page number out of the total number of pages
-    # 'f' before the string indicates that it's a formatted string literal
-    if text_search:
+    with col4:
+        # Display the current page number out of the total number of pages
+        # 'f' before the string indicates that it's a formatted string literal
         current_page = st.session_state.page
         st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages}</p>", unsafe_allow_html=True)
-    else:
-        current_page = st.session_state.page
-        st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages_search}</p>", unsafe_allow_html=True)
 
 
 # Filter dataframe for the selected page
