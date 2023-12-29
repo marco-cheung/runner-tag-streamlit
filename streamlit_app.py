@@ -9,6 +9,13 @@ from io import BytesIO
 st.set_page_config(page_title="Running Photos - Bib Number Search 號碼布搵相", page_icon="🏃", layout="wide")
 st.title("Bib Number Search 號碼布搵相")
 
+# Display image and title
+st.markdown(
+    f'<img src=".streamlit/running-bib-icon.png" style="display:inline; vertical-align: middle; margin-right: 10px;">'
+    f'<h1 style="display:inline; vertical-align: middle;">Bib Number Search 號碼布搵相</h1>',
+    unsafe_allow_html=True
+)
+
 with st.form('input_form'):
     # Create two columns; adjust the ratio to your liking
     col1, col2 = st.columns([3,1]) 
