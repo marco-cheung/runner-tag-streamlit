@@ -82,11 +82,12 @@ def calculate_total_pages(df, images_per_page):
         total_pages += 1
     return total_pages
 
+total_pages_ts = calculate_total_pages(df_search, images_per_page)
 total_pages = calculate_total_pages(df, images_per_page)
 
 
-# Only show page navigation if text_search is empty
-if not text_search:
+@st.cache_data
+def page_navigation(total_pages):
     # Add buttons for page navigation
     col1, col2, col3, col4, col5 = st.columns([8,8,.9,.8,.2])
 
@@ -118,6 +119,9 @@ subset_df = df.iloc[start_index: end_index]
 
 # Show the filtered results
 if text_search:
+    #Call the page navigation function if text_search is not empty
+    page_navigation(total_pages_ts)
+
     for n_row, row in df_search.reset_index().iterrows():
         i = n_row%N_cards_per_row
         if i==0:
@@ -130,6 +134,8 @@ if text_search:
             st.markdown(f'<a href="{row["image_path"]}"><img src="{row["image_path"]}" width="350"></a>', unsafe_allow_html=True)
 
 else:
+    #Call the page navigation function if text_search is empty
+    page_navigation(total_pages)
     # Display the images from the subset dataframe
     for n_row, row in subset_df.iterrows():
         i = n_row%N_cards_per_row
