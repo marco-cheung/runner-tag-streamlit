@@ -83,10 +83,10 @@ def calculate_total_pages(df, images_per_page):
     return total_pages
 
 total_pages = calculate_total_pages(df, images_per_page)
-total_pages_ts = calculate_total_pages(df_search, images_per_page)
 
-# Define a function to add page navigation
-def page_navigation(total_pages):
+
+# Only show page navigation if text_search is empty
+if not text_search:
     # Add buttons for page navigation
     col1, col2, col3, col4, col5 = st.columns([8,8,.9,.8,.2])
 
@@ -108,12 +108,6 @@ def page_navigation(total_pages):
         # 'f' before the string indicates that it's a formatted string literal
         current_page = st.session_state.page
         st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages}</p>", unsafe_allow_html=True)
-
-# Only show page navigation if text_search is empty
-if not text_search:
-    page_navigation(total_pages)
-else:
-    page_navigation(total_pages_ts)
 
 
 # Filter dataframe for the selected page
