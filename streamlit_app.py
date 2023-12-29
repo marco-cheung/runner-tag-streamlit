@@ -5,6 +5,7 @@ from PIL import Image
 import requests
 from io import BytesIO
 import base64
+import requests
 
 # Page setup
 st.set_page_config(page_title="Running Photos - Bib Number Search 號碼布搵相", page_icon="🏃", layout="wide")
@@ -60,9 +61,9 @@ def calculate_total_pages(df, images_per_page):
 total_pages = calculate_total_pages(df, images_per_page)
 
 # Encode image into base64 and then creating a download link
-def get_image_download_link(img_path, filename):
-    with open(img_path, 'rb') as f:
-        data = f.read()
+def get_image_download_link(img_url, filename):
+    response = requests.get(img_url)
+    data = response.content
     bin_str = base64.b64encode(data).decode()
     href = f'<a href="data:application/octet-stream;base64,{bin_str}" download="{filename}">Download</a>'
     return href
