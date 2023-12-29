@@ -100,12 +100,15 @@ if st.session_state.page > 1:
 if st.session_state.page < total_pages:
     col5.button("▶", on_click=increment_page)
 
+# Check if text_search has changed since the last run
+if 'last_text_search' not in st.session_state or st.session_state.last_text_search != text_search:
+    # Navigate to the first page if text_search has changed
+    st.session_state.page = 1
+    st.session_state.last_text_search = text_search
+
+current_page = st.session_state.page
 
 if text_search:
-    # Navigate to the first page if text_search is not empty
-    st.session_state.page = 1
-    current_page = st.session_state.page
-
     with col1:
         if len(df_search) > 0:
             st.markdown(f"<p style='font-size:18px;'>{len(df_search)} photos were found.<br>搵到{len(df_search)} 張相</p>", unsafe_allow_html=True)
@@ -118,7 +121,6 @@ if text_search:
 # If no input of text_search...
 else:
     with col4:
-        current_page = st.session_state.page
         st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages}</p>", unsafe_allow_html=True)
 
 # Filter dataframe for the selected page
