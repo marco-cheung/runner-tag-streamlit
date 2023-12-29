@@ -9,22 +9,21 @@ from io import BytesIO
 st.set_page_config(page_title="Running Photos - Bib Number Search 號碼布搵相", page_icon="🏃", layout="wide")
 
 # Create three columns with different widths on the same row
-col_a, col_b, col_c = st.columns([.3,1,1.5])
+col_a, col_b, col_c = st.columns([.3,1,1])
 
 col_a.image("https://raw.githubusercontent.com/marco-cheung/runner-tag-streamlit/main/.streamlit/running-bib-icon.png", width=80)
 
-# Hide the full screen option within the image using CSS
+# Hide the full screen option for every image display
 hide_img_fs = '''
 <style>
 button[title="View fullscreen"]{
     visibility: hidden;}
 </style>
 '''
-st.markdown(hide_img_fs, unsafe_allow_html=True)
+st.markdown(hide_img_fs)
 
 with col_b:
-   st.title("Bib Number Search 號碼布搵相")
-
+  st.markdown("<h1 style='text-align: left; color: black;'>Bib Number Search 號碼布搵相</h1>")
 
 #st.title("Bib Number Search 號碼布搵相")
 
@@ -107,7 +106,7 @@ if not text_search:
         # Display the current page number out of the total number of pages
         # 'f' before the string indicates that it's a formatted string literal
         current_page = st.session_state.page
-        st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages}</p>", unsafe_allow_html=True)
+        st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages}</p>")
 
 
 # Filter dataframe for the selected page
@@ -127,7 +126,7 @@ if text_search:
         # draw the card
         with cols[n_row%N_cards_per_row]:
             st.caption(f"{row['event'].strip()} - {row['event_time'].strip()} ")
-            st.markdown(f'<a href="{row["image_path"]}"><img src="{row["image_path"]}" width="200"></a>', unsafe_allow_html=True)
+            st.markdown(f'<a href="{row["image_path"]}"><img src="{row["image_path"]}" width="200"></a>')
 
 else:
     # Display the images from the subset dataframe
@@ -138,4 +137,4 @@ else:
             cols = st.columns(N_cards_per_row, gap="large")
         with cols[n_row%N_cards_per_row]:
             st.caption(f"{row['event'].strip()} - {row['event_time'].strip()} ")
-            st.markdown(f'<a href="{row["image_path"]}"><img src="{row["image_path"]}" width="200"></a>', unsafe_allow_html=True)
+            st.markdown(f'<a href="{row["image_path"]}"><img src="{row["image_path"]}" width="200"></a>')
