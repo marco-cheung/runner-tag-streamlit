@@ -85,7 +85,7 @@ def calculate_total_pages(df, images_per_page):
 total_pages = calculate_total_pages(df, images_per_page)
 total_pages_ts = calculate_total_pages(df_search, images_per_page)
 
-@st.cache_data
+# Define a function to add page navigation
 def page_navigation(total_pages):
     # Add buttons for page navigation
     col1, col2, col3, col4, col5 = st.columns([8,8,.9,.8,.2])
