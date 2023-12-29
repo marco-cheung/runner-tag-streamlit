@@ -4,8 +4,6 @@ import pandas as pd
 from PIL import Image
 import requests
 from io import BytesIO
-import base64
-import requests
 
 # Page setup
 st.set_page_config(page_title="Running Photos - Bib Number Search 號碼布搵相", page_icon="🏃", layout="wide")
@@ -60,14 +58,6 @@ def calculate_total_pages(df, images_per_page):
 
 total_pages = calculate_total_pages(df, images_per_page)
 
-# Encode image into base64 and then creating a download link
-def get_image_download_link(img_url, file_download_name):
-    response = requests.get(img_url)
-    data = response.content
-    bin_str = base64.b64encode(data).decode()
-    href = f'<a href="data:application/octet-stream;base64,{bin_str}" download="{file_download_name}">Download</a>'
-    return href
-
 
 # Only show page navigation if text_search is empty
 if not text_search:
@@ -111,8 +101,7 @@ if text_search:
         # draw the card
         with cols[n_row%N_cards_per_row]:
             st.caption(f"{row['event'].strip()} - {row['event_time'].strip()} ")
-            st.image(row['image_path'])
-            st.markdown(get_image_download_link(row['image_path'], row['image_path']), unsafe_allow_html=True)
+            st.markdown(f'<a href="{row["image_path"]}"><img src="{row["image_path"]}" width="200"></a>', unsafe_allow_html=True)
 
 else:
     # Display the images from the subset dataframe
@@ -123,5 +112,4 @@ else:
             cols = st.columns(N_cards_per_row, gap="large")
         with cols[n_row%N_cards_per_row]:
             st.caption(f"{row['event'].strip()} - {row['event_time'].strip()} ")
-            st.image(row['image_path'], width=200)
-            st.markdown(get_image_download_link(row['image_path'], row['image_path']), unsafe_allow_html=True)
+            st.markdown(f'<a href="{row["image_path"]}"><img src="{row["image_path"]}" width="200"></a>', unsafe_allow_html=True)
