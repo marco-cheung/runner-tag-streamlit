@@ -37,7 +37,12 @@ if 'page' not in st.session_state:
 sheet_id = "1AvZtnDy43gr6ttpokX-w5F5s-4KpapjFgQaR6tKkxgk"
 sheet_name = "hzmbhm2023"
 url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&sheet={sheet_name}"
-df = pd.read_csv(url, dtype=str)
+
+@st.cache_data
+def load_df(sheet_url):
+    data = pd.read_csv(sheet_url, dtype=str)
+
+df = load_df(url)
 
 # Filter the dataframe using masks
 mask = df["bib_num"].str.contains(text_search)
