@@ -100,6 +100,7 @@ if text_search:
         with cols[n_row%N_cards_per_row]:
             st.caption(f"{row['event'].strip()} - {row['event_time'].strip()} ")
             st.image(row['image_path'])
+            st.markdown(f"[Download]({row['image_path']})")
 
 else:
     # Display the images from the subset dataframe
@@ -111,3 +112,4 @@ else:
         with cols[n_row%N_cards_per_row]:
             st.caption(f"{row['event'].strip()} - {row['event_time'].strip()} ")
             st.image(row['image_path'], width=200)
+            st.markdown(f"[Download]({row['image_path']})")
