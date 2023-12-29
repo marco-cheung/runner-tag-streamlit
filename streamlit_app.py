@@ -105,10 +105,11 @@ if st.session_state.page < total_pages:
 with col4:
     # Display the current page number out of the total number of pages
     # 'f' before the string indicates that it's a formatted string literal
-    current_page = st.session_state.page
     if text_search:
+        current_page = st.session_state.page
         st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages}</p>", unsafe_allow_html=True)
     else:
+        current_page = st.session_state.page
         st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages_search}</p>", unsafe_allow_html=True)
 
 
