@@ -109,14 +109,14 @@ if text_search:
             st.markdown(f"<p style='font-size:18px;'>No photos were found, try searching with part of the number.<br>唔好意思搵唔到相，試下輸入部分號碼搜尋。</p>", unsafe_allow_html=True)
 
     with col4:
+        #Set page number to 1 when text_search is not empty
+        st.session_state.page = 1
         current_page = st.session_state.page
         st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages_search}</p>", unsafe_allow_html=True)
 
 # If no input of text_search...
 else:
     with col4:
-        #Set the current page to 1
-        st.session_state.page = 1
         current_page = st.session_state.page
         st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages}</p>", unsafe_allow_html=True)
 
