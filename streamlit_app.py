@@ -88,7 +88,7 @@ total_pages = calculate_total_pages(df, images_per_page)
 # Only show page navigation if text_search is empty
 if not text_search:
     # Add buttons for page navigation
-    col1, col2, col3, col4, col5 = st.columns([8,8,1,.9,.2])
+    col1, col2, col3, col4, col5 = st.columns([8,8,.9,1,.2])
 
     # Define functions to increment and decrement page number
     def increment_page():
