@@ -61,11 +61,11 @@ def calculate_total_pages(df, images_per_page):
 total_pages = calculate_total_pages(df, images_per_page)
 
 # Encode image into base64 and then creating a download link
-def get_image_download_link(img_url, filename):
+def get_image_download_link(img_url, file_download_name):
     response = requests.get(img_url)
     data = response.content
     bin_str = base64.b64encode(data).decode()
-    href = f'<a href="data:application/octet-stream;base64,{bin_str}" download="{filename}">Download</a>'
+    href = f'<a href="data:application/octet-stream;base64,{bin_str}" download="{file_download_name}">Download</a>'
     return href
 
 
@@ -112,7 +112,7 @@ if text_search:
         with cols[n_row%N_cards_per_row]:
             st.caption(f"{row['event'].strip()} - {row['event_time'].strip()} ")
             st.image(row['image_path'])
-            st.markdown(get_image_download_link(row['image_path'], 'image.jpg'), unsafe_allow_html=True)
+            st.markdown(get_image_download_link(row['image_path'], row['image_path']), unsafe_allow_html=True)
 
 else:
     # Display the images from the subset dataframe
@@ -124,4 +124,4 @@ else:
         with cols[n_row%N_cards_per_row]:
             st.caption(f"{row['event'].strip()} - {row['event_time'].strip()} ")
             st.image(row['image_path'], width=200)
-            st.markdown(get_image_download_link(row['image_path'], 'image.jpg'), unsafe_allow_html=True)
+            st.markdown(get_image_download_link(row['image_path'], row['image_path']), unsafe_allow_html=True)
