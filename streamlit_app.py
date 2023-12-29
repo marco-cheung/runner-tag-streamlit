@@ -109,6 +109,10 @@ if not text_search:
         current_page = st.session_state.page
         st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages}</p>", unsafe_allow_html=True)
 
+else:
+    # Display the number of results
+    st.markdown(f"<p style='font-size:18px;'>{len(df_search)} photos were found.</p>", unsafe_allow_html=True)
+
 
 # Filter dataframe for the selected page
 start_index = (st.session_state.page - 1) * images_per_page
