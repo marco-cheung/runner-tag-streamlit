@@ -8,10 +8,12 @@ from io import BytesIO
 # Page setup
 st.set_page_config(page_title="Running Photos - Bib Number Search 號碼布搵相", page_icon="🏃", layout="wide")
 
-# Create two columns to add image icon and header on the same row
-col1, col2, col3 = st.columns([.3,1,2])
-col1.image("https://raw.githubusercontent.com/marco-cheung/runner-tag-streamlit/main/.streamlit/running-bib-icon.png", width=100)
-col2.header("Bib Number Search 號碼布搵相")
+# Create three columns with different widths on the same row
+col_a, col_b, col_c = st.columns([.3,1,2])
+
+col_a.image("https://raw.githubusercontent.com/marco-cheung/runner-tag-streamlit/main/.streamlit/running-bib-icon.png", width=100)
+with col_b:
+   st.title("Bib Number Search 號碼布搵相")
 
 
 #st.title("Bib Number Search 號碼布搵相")
