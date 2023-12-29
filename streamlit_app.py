@@ -12,6 +12,16 @@ st.set_page_config(page_title="Running Photos - Bib Number Search 號碼布搵�
 col_a, col_b, col_c = st.columns([.3,1,1])
 
 col_a.image("https://raw.githubusercontent.com/marco-cheung/runner-tag-streamlit/main/.streamlit/running-bib-icon.png", width=80)
+
+# Hide the full screen option within the image using CSS
+hide_img_fs = '''
+<style>
+button[title="View fullscreen"]{
+    visibility: hidden;}
+</style>
+'''
+st.markdown(hide_img_fs, unsafe_allow_html=True)
+
 with col_b:
    st.title("Bib Number Search 號碼布搵相")
 
