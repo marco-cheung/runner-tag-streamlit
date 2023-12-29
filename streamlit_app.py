@@ -50,6 +50,7 @@ N_cards_per_row = 3
 images_per_page = 15
 
 # Calculate the total number of pages
+@st.cache_data
 def calculate_total_pages(df, images_per_page):
     total_pages = len(df) // images_per_page
     if len(df) % images_per_page:
