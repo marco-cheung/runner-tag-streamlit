@@ -111,9 +111,9 @@ if not text_search:
 
 if len(df_search) > 0:
     # Display the number of results
-    st.markdown(f"<p style='font-size:18px;'>{len(df_search)} photos were found. 搵到{len(df_search)} 張相</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='font-size:18px;'>{len(df_search)} photos were found.\n 搵到{len(df_search)} 張相</p>", unsafe_allow_html=True)
 else:
-    st.markdown(f"<p style='font-size:18px;'>No photos were found, try searching with part of the number. 唔好意思搵唔到相，試下輸入部分號碼搜尋。</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='font-size:18px;'>No photos were found, try searching with part of the number.\n 唔好意思搵唔到相，試下輸入部分號碼搜尋。</p>", unsafe_allow_html=True)
 
 # Filter dataframe for the selected page
 start_index = (st.session_state.page - 1) * images_per_page
