@@ -9,6 +9,13 @@ from io import BytesIO
 st.set_page_config(page_title="Running Photos - Bib Number Search 號碼布搵相", page_icon="🏃", layout="wide")
 st.title("Bib Number Search 號碼布搵相")
 
+# Display image and title
+st.markdown(
+    f'<img src=".streamlit/running-bib-icon.png" style="display:inline; vertical-align: middle; margin-right: 10px;">'
+    f'<h1 style="display:inline; vertical-align: middle;">Bib Number Search 號碼布搵相</h1>',
+    unsafe_allow_html=True
+)
+
 with st.form('input_form'):
     # Create two columns; adjust the ratio to your liking
     col1, col2 = st.columns([3,1]) 
@@ -37,12 +44,10 @@ if 'page' not in st.session_state:
 sheet_id = "1AvZtnDy43gr6ttpokX-w5F5s-4KpapjFgQaR6tKkxgk"
 sheet_name = "hzmbhm2023"
 url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&sheet={sheet_name}"
+df = pd.read_csv(url, dtype=str)
 
-@st.cache_data
-def load_df(sheet_url):
-    data = pd.read_csv(sheet_url, dtype=str)
-
-df = load_df(url)
+# Convert bib_num column to string
+df["bib_num"] = df["bib_num"].astype(str)
 
 # Filter the dataframe using masks
 mask = df["bib_num"].str.contains(text_search)
