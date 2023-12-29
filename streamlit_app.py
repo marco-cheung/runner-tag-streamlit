@@ -91,7 +91,7 @@ col1, col2, col3, col4, col5 = st.columns([8,8,.9,1,.2])
 
 # Define functions to increment and decrement page number
 def increment_page():
-st.session_state.page += 1
+    st.session_state.page += 1
 
 def decrement_page():
     st.session_state.page -= 1
