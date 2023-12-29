@@ -4,6 +4,7 @@ import pandas as pd
 from PIL import Image
 import requests
 from io import BytesIO
+import base64
 
 # Page setup
 st.set_page_config(page_title="Running Photos - Bib Number Search 號碼布搵相", page_icon="🏃", layout="wide")
@@ -58,6 +59,14 @@ def calculate_total_pages(df, images_per_page):
 
 total_pages = calculate_total_pages(df, images_per_page)
 
+# Encode image into base64 and then creating a download link
+def get_image_download_link(img_path, filename):
+    with open(img_path, 'rb') as f:
+        data = f.read()
+    bin_str = base64.b64encode(data).decode()
+    href = f'<a href="data:application/octet-stream;base64,{bin_str}" download="{filename}">Download</a>'
+    return href
+
 
 # Only show page navigation if text_search is empty
 if not text_search:
@@ -79,6 +88,7 @@ if not text_search:
 
     with col4:
         # Display the current page number out of the total number of pages
+        # 'f' before the string indicates that it's a formatted string literal
         current_page = st.session_state.page
         st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages}</p>", unsafe_allow_html=True)
 
@@ -87,6 +97,7 @@ if not text_search:
 start_index = (st.session_state.page - 1) * images_per_page
 end_index = start_index + images_per_page
 subset_df = df.iloc[start_index: end_index]
+
 
 # Show the filtered results
 if text_search:
@@ -100,7 +111,7 @@ if text_search:
         with cols[n_row%N_cards_per_row]:
             st.caption(f"{row['event'].strip()} - {row['event_time'].strip()} ")
             st.image(row['image_path'])
-            st.markdown(f"[Download]({row['image_path']})")
+            st.markdown(get_image_download_link(row['image_path'], 'image.jpg'), unsafe_allow_html=True)
 
 else:
     # Display the images from the subset dataframe
@@ -112,4 +123,4 @@ else:
         with cols[n_row%N_cards_per_row]:
             st.caption(f"{row['event'].strip()} - {row['event_time'].strip()} ")
             st.image(row['image_path'], width=200)
-            st.markdown(f"[Download]({row['image_path']})")
+            st.markdown(get_image_download_link(row['image_path'], 'image.jpg'), unsafe_allow_html=True)
