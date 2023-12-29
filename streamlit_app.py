@@ -26,9 +26,6 @@ with col_b:
   st.markdown("<h1 style='text-align: left; color: black; font-size: 36px;'>Bib Number Search 號碼布搵相</h1>", unsafe_allow_html=True)
 
 
-#st.title("Bib Number Search 號碼布搵相")
-
-
 with st.form('input_form'):
     # Create two columns; adjust the ratio to your liking
     col1, col2 = st.columns([3,1]) 
@@ -83,37 +80,47 @@ def calculate_total_pages(df, images_per_page):
     return total_pages
 
 total_pages = calculate_total_pages(df, images_per_page)
+total_pages_search = calculate_total_pages(df_search, images_per_page)
 
 
-# Only show page navigation if text_search is empty
-if not text_search:
-    # Add buttons for page navigation
-    col1, col2, col3, col4, col5 = st.columns([8,8,.9,1,.2])
+# Display the page number and total number of pages
+# Add buttons for page navigation
+col1, col2, col3, col4, col5 = st.columns([8,8,.9,1,.2])
 
-    # Define functions to increment and decrement page number
-    def increment_page():
-        st.session_state.page += 1
+# Define functions to increment and decrement page number
+def increment_page():
+    st.session_state.page += 1
 
-    def decrement_page():
-        st.session_state.page -= 1
+def decrement_page():
+    st.session_state.page -= 1
 
-    if st.session_state.page > 1:
-        col3.button("◀", on_click=decrement_page)
+if st.session_state.page > 1:
+    col3.button("◀", on_click=decrement_page)
 
-    if st.session_state.page < total_pages:
-        col5.button("▶", on_click=increment_page)
+if st.session_state.page < total_pages:
+    col5.button("▶", on_click=increment_page)
+
+
+if text_search:
+    with col1:
+        if len(df_search) > 0:
+            st.markdown(f"<p style='font-size:18px;'>{len(df_search)} photos were found.<br>搵到{len(df_search)} 張相</p>", unsafe_allow_html=True)
+        else:
+            st.markdown(f"<p style='font-size:18px;'>No photos were found, try searching with part of the number.<br>唔好意思搵唔到相，試下輸入部分號碼搜尋。</p>", unsafe_allow_html=True)
 
     with col4:
-        # Display the current page number out of the total number of pages
-        # 'f' before the string indicates that it's a formatted string literal
+    # Display the current page number out of the total number of pages
+    # 'f' before the string indicates that it's a formatted string literal
+        current_page = st.session_state.page
+        st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages_search}</p>", unsafe_allow_html=True)
+
+# If no input of text_search...
+else:
+    with col4:
+    # Display the current page number out of the total number of pages
+    # 'f' before the string indicates that it's a formatted string literal
         current_page = st.session_state.page
         st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages}</p>", unsafe_allow_html=True)
-
-if len(df_search) > 0:
-    # Display the number of results
-    st.markdown(f"<p style='font-size:18px;'>{len(df_search)} photos were found.<br>搵到{len(df_search)} 張相</p>", unsafe_allow_html=True)
-else:
-    st.markdown(f"<p style='font-size:18px;'>No photos were found, try searching with part of the number.<br>唔好意思搵唔到相，試下輸入部分號碼搜尋。</p>", unsafe_allow_html=True)
 
 # Filter dataframe for the selected page
 start_index = (st.session_state.page - 1) * images_per_page
