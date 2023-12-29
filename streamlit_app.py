@@ -23,7 +23,7 @@ button[title="View fullscreen"]{
 st.markdown(hide_img_fs, unsafe_allow_html=True)
 
 with col_b:
-  st.markdown("<h1 style='text-align: left; color: black; font-size: 38px;'>Bib Number Search 號碼布搵相</h1>", unsafe_allow_html=True)
+  st.markdown("<h1 style='text-align: left; color: black; font-size: 36px;'>Bib Number Search 號碼布搵相</h1>", unsafe_allow_html=True)
 
 
 #st.title("Bib Number Search 號碼布搵相")
