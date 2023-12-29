@@ -126,12 +126,14 @@ else:
 # Filter dataframe for the selected page
 start_index = (st.session_state.page - 1) * images_per_page
 end_index = start_index + images_per_page
+
 subset_df = df.iloc[start_index: end_index]
+subset_df_search = df_search.iloc[start_index: end_index]
 
 
 # Show the filtered results
 if text_search:
-    for n_row, row in df_search.reset_index().iterrows():
+    for n_row, row in subset_df_search.reset_index().iterrows():
         i = n_row%N_cards_per_row
         if i==0:
             st.write("---")
