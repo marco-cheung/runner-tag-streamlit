@@ -198,4 +198,15 @@ col_j_key = 'col_j_key'
 display_page_navigation(col_h, col_i, col_j, col_h_key, col_j_key)
 
 with st.container():
-   st.write("🧩Created by: Marco Cheung\n📷Photo Source: Official Organizers")
+    st.markdown("""
+    <style>
+    .container {
+        background-color: #f0f0f5;
+        color: #333;
+    }
+    </style>
+    <div class="container">
+        🧩Created by: Marco Cheung<br>
+        📷Photo Source: Official Organizers
+    </div>
+    """, unsafe_allow_html=True)
