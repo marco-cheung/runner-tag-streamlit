@@ -200,6 +200,6 @@ display_page_navigation(col_h, col_i, col_j, col_h_key, col_j_key)
 # Add footer
 st.markdown("""
     <hr style='border: dashed 1px lightgrey; margin-bottom: 0;'>
-    🧩Created by: Marco Cheung 
+    🧩Created by: Marco Cheung <br>
     📷Photo Source: Official Organizers
 """, unsafe_allow_html=True)
