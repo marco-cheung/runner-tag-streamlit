@@ -25,6 +25,25 @@ st.markdown(hide_img_fs, unsafe_allow_html=True)
 with col_b:
   st.markdown("<h1 style='text-align: left; color: black; font-size: 36px;'>Bib Number Search 號碼布搵相</h1>", unsafe_allow_html=True)
 
+# Connect to the Google Sheet
+sheet_id = "1AvZtnDy43gr6ttpokX-w5F5s-4KpapjFgQaR6tKkxgk"
+sheet_name = "hzmbhm2023"
+url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&sheet={sheet_name}"
+
+@st.cache_data
+def load_df(sheet_url):
+    data = pd.read_csv(sheet_url, dtype=str)
+
+df = pd.read_csv(url, dtype=str)
+
+# Apply a selectbox to the df's 'event_name' column
+event_names = df['event_name'].unique()
+
+# Select event for df
+selected_value = st.selectbox('賽事選擇 Select race:', options=event_names)
+df_event = df[df['event_name'] == selected_value]
+
+# Now, selected_value holds the value selected by the user
 
 with st.form('input_form'):
     # Create two columns; adjust the ratio to your liking
@@ -50,20 +69,9 @@ st.markdown(
 if 'page' not in st.session_state:
     st.session_state.page = 1
 
-# Connect to the Google Sheet
-sheet_id = "1AvZtnDy43gr6ttpokX-w5F5s-4KpapjFgQaR6tKkxgk"
-sheet_name = "hzmbhm2023"
-url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&sheet={sheet_name}"
-
-@st.cache_data
-def load_df(sheet_url):
-    data = pd.read_csv(sheet_url, dtype=str)
-
-df = pd.read_csv(url, dtype=str)
-
 # Filter the dataframe using masks
-mask = df["bib_num"].str.contains(text_search)
-df_search = df[mask]
+mask = df_event["bib_num"].str.contains(text_search)
+df_search = df_event[mask]
 
 # Show the cards
 N_cards_per_row = 3
@@ -72,13 +80,13 @@ N_cards_per_row = 3
 images_per_page = 12
 
 # Calculate the total number of pages
-def calculate_total_pages(df, images_per_page):
-    total_pages = len(df) // images_per_page
-    if len(df) % images_per_page:
+def calculate_total_pages(df_event, images_per_page):
+    total_pages = len(df_event) // images_per_page
+    if len(df_event) % images_per_page:
         total_pages += 1
     return total_pages
 
-total_pages = calculate_total_pages(df, images_per_page)
+total_pages = calculate_total_pages(df_event, images_per_page)
 total_pages_search = calculate_total_pages(df_search, images_per_page)
 
 
@@ -135,7 +143,7 @@ display_page_navigation(col_a, col_b, col_c, col_d, col_e, col_c_key, col_e_key)
 start_index = (st.session_state.page - 1) * images_per_page
 end_index = start_index + images_per_page
 
-subset_df = df.iloc[start_index: end_index]
+subset_df = df_event.iloc[start_index: end_index]
 subset_df_search = df_search.iloc[start_index: end_index]
 
 
