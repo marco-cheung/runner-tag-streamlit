@@ -82,7 +82,7 @@ total_pages = calculate_total_pages(df, images_per_page)
 total_pages_search = calculate_total_pages(df_search, images_per_page)
 
 # Get the current page number
-#current_page = st.session_state.page
+current_page = st.session_state.page
 
 # Add buttons for page navigation
 col_a, col_b, col_c, col_d, col_e = st.columns([8,8,.9,1,.2])
@@ -96,7 +96,7 @@ def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_ke
         st.session_state.page -= 1
 
     # Get the current page number
-    current_page = st.session_state.page
+    #current_page = st.session_state.page
 
     if st.session_state.page > 1:
         if (text_search and len(df_search) > 0) or not text_search:
@@ -112,25 +112,28 @@ def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_ke
         st.session_state.page = 1
         st.session_state.last_text_search = text_search
 
-    if text_search:
-        with col_01:
-            if len(df_search) > 0:
-                st.markdown(f"<p style='font-size:18px;'>{len(df_search)} photos were found.<br>搵到{len(df_search)} 張相</p>", unsafe_allow_html=True)
-            else:
-                st.markdown(f"<p style='font-size:18px;'>No photos were found, try searching with part of the number.<br>唔好意思搵唔到相，試下輸入部分號碼搜尋。</p>", unsafe_allow_html=True)
-
-        with col_04:
-            if len(df_search) > 0:
-                st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages_search}</p>", unsafe_allow_html=True)
-
-    # If no input of text_search...
-    else:
-        with col_04:
-            st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages}</p>", unsafe_allow_html=True)
-
+# Call function to add buttons for page navigation
 col_c_key = 'col_c_key'
 col_e_key = 'col_e_key'
 display_page_navigation(col_a, col_b, col_c, col_d, col_e, col_c_key, col_e_key)
+
+# Show the number of photos found
+if text_search:
+    with col_a:
+        if len(df_search) > 0:
+            st.markdown(f"<p style='font-size:18px;'>{len(df_search)} photos were found.<br>搵到{len(df_search)} 張相</p>", unsafe_allow_html=True)
+        else:
+            st.markdown(f"<p style='font-size:18px;'>No photos were found, try searching with part of the number.<br>唔好意思搵唔到相，試下輸入部分號碼搜尋。</p>", unsafe_allow_html=True)
+
+    with col_d:
+        if len(df_search) > 0:
+            st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages_search}</p>", unsafe_allow_html=True)
+
+# If no input of text_search...
+else:
+    with col_d:
+        st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages}</p>", unsafe_allow_html=True)
+
 
 # Filter dataframe for the selected page
 start_index = (st.session_state.page - 1) * images_per_page
