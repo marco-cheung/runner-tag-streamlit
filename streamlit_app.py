@@ -111,12 +111,6 @@ def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_ke
         st.session_state.last_text_search = text_search
 
     if text_search:
-        with col_01:
-            if len(df_search) > 0:
-                st.markdown(f"<p style='font-size:18px;'>{len(df_search)} photos were found.<br>搵到{len(df_search)} 張相</p>", unsafe_allow_html=True)
-            else:
-                st.markdown(f"<p style='font-size:18px;'>No photos were found, try searching with part of the number.<br>唔好意思搵唔到相，試下輸入部分號碼搜尋。</p>", unsafe_allow_html=True)
-
         with col_04:
             if len(df_search) > 0:
                 st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages_search}</p>", unsafe_allow_html=True)
@@ -125,6 +119,12 @@ def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_ke
     else:
         with col_04:
             st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages}</p>", unsafe_allow_html=True)
+
+with col_a:
+    if len(df_search) > 0:
+        st.markdown(f"<p style='font-size:18px;'>{len(df_search)} photos were found.<br>搵到{len(df_search)} 張相</p>", unsafe_allow_html=True)
+    else:
+        st.markdown(f"<p style='font-size:18px;'>No photos were found, try searching with part of the number.<br>唔好意思搵唔到相，試下輸入部分號碼搜尋。</p>", unsafe_allow_html=True)
 
 col_c_key = 'col_c_key'
 col_e_key = 'col_e_key'
