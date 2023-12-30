@@ -9,9 +9,9 @@ from io import BytesIO
 st.set_page_config(page_title="Running Photos - Bib Number Search 號碼布搵相", page_icon="🏃", layout="wide")  
 
 # Create three columns with different widths on the same row
-col_a, col_b, col_c = st.columns([.2,2,2])
+col_01, col_02, col_03 = st.columns([.2,2,2])
 
-col_a.image("https://raw.githubusercontent.com/marco-cheung/runner-tag-streamlit/main/.streamlit/running-bib-icon.png", width=60)
+col_01.image("https://raw.githubusercontent.com/marco-cheung/runner-tag-streamlit/main/.streamlit/running-bib-icon.png", width=60)
 
 # Hide the full screen option for every image displayed
 hide_img_fs = '''
@@ -22,7 +22,7 @@ button[title="View fullscreen"]{
 '''
 st.markdown(hide_img_fs, unsafe_allow_html=True)
 
-with col_b:
+with col_02:
   st.markdown("<h1 style='text-align: left; color: black; font-size: 36px;'>Bib Number Search 號碼布搵相</h1>", unsafe_allow_html=True)
 
 # Connect to the Google Sheet
