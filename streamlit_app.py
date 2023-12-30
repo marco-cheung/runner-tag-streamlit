@@ -112,6 +112,21 @@ js = f"""
 </script>
 """
 
+# Change button size
+st.markdown(
+    """
+<style>
+button {
+    height: auto;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+</style>
+""",
+    unsafe_allow_html=True,
+)
+
+
 def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_key, increment_key):   
     # Define functions to increment and decrement page number
     def increment_page():
@@ -145,12 +160,12 @@ def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_ke
     if text_search:
         with col_04:
             if len(df_search) > 0:
-                st.markdown(f"<p style='font-size:15px;'>{current_page}/{total_pages_search}</p>", unsafe_allow_html=True)
+                st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages_search}</p>", unsafe_allow_html=True)
 
     # If no input of text_search...
     else:
         with col_04:
-            st.markdown(f"<p style='font-size:15px;'>{current_page}/{total_pages}</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages}</p>", unsafe_allow_html=True)
 
 col_c_key = 'col_c_key'
 col_e_key = 'col_e_key'
