@@ -94,13 +94,20 @@ total_pages_search = calculate_total_pages(df_search, images_per_page)
 # Add buttons for page navigation
 col_a, col_b, col_c, col_d, col_e = st.columns([8,8,.9,1,.2])
 
+# hidden div with anchor
+st.markdown("<div id='linkto_top'></div>", unsafe_allow_html=True)   
+
 def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_key, increment_key):
     # Define functions to increment and decrement page number
     def increment_page():
         st.session_state.page += 1
+        # add the link at the bottom of each page
+        st.markdown("<a href='#linkto_top'>Link to top</a>", unsafe_allow_html=True)
 
     def decrement_page():
         st.session_state.page -= 1
+        # add the link at the bottom of each page
+        st.markdown("<a href='#linkto_top'>Link to top</a>", unsafe_allow_html=True)
 
     # Get the current page number
     current_page = st.session_state.page
