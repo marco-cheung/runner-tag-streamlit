@@ -40,7 +40,7 @@ df = pd.read_csv(url, dtype=str)
 event_names = df['event'].unique()
 
 # Select event for df
-selected_event = st.selectbox('賽事選擇 Select race:', options=event_names)
+selected_event = st.selectbox('Select race 賽事選擇:', options=event_names)
 df_event = df[df['event'] == selected_event]
 
 # Now, selected_value holds the value selected by the user
@@ -52,7 +52,7 @@ with st.form('input_form'):
     # Use the first column for text input
     with col1:
         # Use a text_input to get the keywords to filter the dataframe
-        text_search = st.text_input("Input Bib Number 請輸入號碼布編號", placeholder='例子 Example: 7757', label_visibility='collapsed')
+        text_search = st.text_input("Input Bib Number 請輸入號碼布編號", placeholder='Example 例子: 7757', label_visibility='collapsed')
     
     # Use the second column for the submit button
     with col2:
@@ -157,7 +157,7 @@ if text_search:
 
         # draw the card
         with cols[n_row%N_cards_per_row]:
-            st.caption(f"{row['event'].strip()} - {row['event_time'].strip()} ")
+            st.caption(f"Time: {row['event_time'].strip()}")
             st.markdown(f'<a href="{row["image_path"]}"><img src="{row["image_path"]}" width="300"></a>', unsafe_allow_html=True)
 
 else:
@@ -168,7 +168,7 @@ else:
             st.write("---")
             cols = st.columns(N_cards_per_row, gap="large")
         with cols[n_row%N_cards_per_row]:
-            st.caption(f"{row['event'].strip()} - {row['event_time'].strip()} ")
+            st.caption(f"Time: {row['event_time'].strip()}")
             st.markdown(f'<a href="{row["image_path"]}"><img src="{row["image_path"]}" width="300"></a>', unsafe_allow_html=True)
 
 # Add buttons for page navigation
