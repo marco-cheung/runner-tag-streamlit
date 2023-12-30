@@ -106,7 +106,7 @@ js = f"""
     function scrollToTop(uniqueValue){{
         var textAreas = parent.document.querySelectorAll('section.main');
         for (let index = 0; index < textAreas.length; index++) {{
-            textAreas[index].scrollTop = 100;
+            textAreas[index].scrollTop = 50;
         }}
     }}
 </script>
