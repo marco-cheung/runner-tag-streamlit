@@ -125,7 +125,9 @@ def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_ke
         with col_d:
             st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages}</p>", unsafe_allow_html=True)
 
-display_page_navigation(col_a, col_b, col_c, col_d, col_e)
+col_c_key = 'col_c_key'
+col_e_key = 'col_e_key'
+display_page_navigation(col_a, col_b, col_c, col_d, col_e, col_c_key, col_e_key)
 
 # Filter dataframe for the selected page
 start_index = (st.session_state.page - 1) * images_per_page
@@ -162,4 +164,6 @@ else:
 # Add buttons for page navigation
 col_f, col_g, col_h, col_i, col_j = st.columns([8,8,.9,1,.2])
 
-display_page_navigation(col_f, col_g, col_h, col_i, col_j)
+col_h_key = 'col_h_key'
+col_j_key = 'col_j_key'
+display_page_navigation(col_f, col_g, col_h, col_i, col_j, col_h_key, col_j_key)
