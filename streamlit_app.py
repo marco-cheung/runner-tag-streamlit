@@ -95,25 +95,28 @@ total_pages_search = calculate_total_pages(df_search, images_per_page)
 col_a, col_b, col_c, col_d, col_e = st.columns([8,8,.9,1,.2])
 
 #enable to scroll up back to top after clicking a button (with JavaScript)
-js = '''
-     <script>
-     var body = window.parent.document.querySelector(".main");
-     console.log(body);
-     body.scrollTop = 0;
-     </script>
-     '''
+js = f"""
+<script>
+    function scrollToTop(uniqueValue){{
+        var textAreas = parent.document.querySelectorAll('section.main');
+        for (let index = 0; index < textAreas.length; index++) {{
+            textAreas[index].scrollTop = 0;
+        }}
+    }}
+</script>
+"""
 
 def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_key, increment_key):
     # Define functions to increment and decrement page number
     def increment_page():
         st.session_state.page += 1
         #scroll up back to top after clicking a button
-        st.components.v1.html(js, height=-500)
+        st.components.v1.html(js + f"<script>scrollToTop({st.session_state.page});</script>", height=0)
 
     def decrement_page():
         st.session_state.page -= 1
         #scroll up back to top after clicking a button
-        st.components.v1.html(js, height=-500)
+        st.components.v1.html(js + f"<script>scrollToTop({st.session_state.page});</script>", height=0)
 
     # Get the current page number
     current_page = st.session_state.page
