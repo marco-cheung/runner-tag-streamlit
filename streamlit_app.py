@@ -106,7 +106,7 @@ js = f"""
     function scrollToTop(uniqueValue){{
         var textAreas = parent.document.querySelectorAll('section.main');
         for (let index = 0; index < textAreas.length; index++) {{
-            textAreas[index].scrollTop = -20;
+            textAreas[index].scrollTop = 0;
         }}
     }}
 </script>
@@ -117,12 +117,12 @@ def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_ke
     def increment_page():
         st.session_state.page += 1
         #scroll up back to top after clicking a button
-        st.components.v1.html(js + f"<script>scrollToTop({st.session_state.page});</script>", height=0)
+        st.components.v1.html(js + f"<script>scrollToTop({st.session_state.page});</script>", height=50)
 
     def decrement_page():
         st.session_state.page -= 1
         #scroll up back to top after clicking a button
-        st.components.v1.html(js + f"<script>scrollToTop({st.session_state.page});</script>", height=0)
+        st.components.v1.html(js + f"<script>scrollToTop({st.session_state.page});</script>", height=50)
 
     # Check if text_search has changed since the last run
     if 'last_text_search' not in st.session_state or st.session_state.last_text_search != text_search:
