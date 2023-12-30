@@ -32,7 +32,7 @@ url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&shee
 
 @st.cache_data
 def load_df(sheet_url):
-    data = pd.read_csv(sheet_url, dtype=str)
+    data = pd.read_csv(sheet_url, dtype=str, usecols=[:-1])
 
 df = pd.read_csv(url, dtype=str)
 
