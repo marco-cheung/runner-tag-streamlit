@@ -156,6 +156,11 @@ col_c_key = 'col_c_key'
 col_e_key = 'col_e_key'
 display_page_navigation(col_a, col_b, col_c, col_d, col_e, col_c_key, col_e_key)
 
+if text_search:
+    col_c = ''
+    col_d = ''
+    col_e = ''
+
 # Filter dataframe for the selected page
 start_index = (st.session_state.page - 1) * images_per_page
 end_index = start_index + images_per_page
