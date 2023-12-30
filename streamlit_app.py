@@ -161,10 +161,3 @@ else:
         with cols[n_row%N_cards_per_row]:
             st.caption(f"{row['event'].strip()} - {row['event_time'].strip()} ")
             st.markdown(f'<a href="{row["image_path"]}"><img src="{row["image_path"]}" width="350"></a>', unsafe_allow_html=True)
-
-# Add buttons for page navigation
-col_f, col_g, col_h, col_i, col_j = st.columns([8,8,.9,1,.2])
-
-col_h_key = 'col_h_key'
-col_j_key = 'col_j_key'
-display_page_navigation(col_f, col_g, col_h, col_i, col_j, col_h_key, col_j_key)
