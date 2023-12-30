@@ -78,8 +78,11 @@ def calculate_total_pages(df, images_per_page):
         total_pages += 1
     return total_pages
 
+total_pages = calculate_total_pages(df, images_per_page)
+total_pages_search = calculate_total_pages(df_search, images_per_page)
+
 # Get the current page number
-current_page = st.session_state.page
+#current_page = st.session_state.page
 
 # Add buttons for page navigation
 col_a, col_b, col_c, col_d, col_e = st.columns([8,8,.9,1,.2])
@@ -92,8 +95,8 @@ def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_ke
     def decrement_page():
         st.session_state.page -= 1
 
-    total_pages = calculate_total_pages(df, images_per_page)
-    total_pages_search = calculate_total_pages(df_search, images_per_page)
+    # Get the current page number
+    current_page = st.session_state.page
 
     if st.session_state.page > 1:
         if (text_search and len(df_search) > 0) or not text_search:
@@ -108,8 +111,6 @@ def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_ke
         # Navigate to the first page if text_search has changed
         st.session_state.page = 1
         st.session_state.last_text_search = text_search
-
-    current_page = st.session_state.page
 
     if text_search:
         with col_01:
