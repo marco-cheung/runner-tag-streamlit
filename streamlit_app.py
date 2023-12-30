@@ -107,9 +107,13 @@ def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_ke
     # Define functions to increment and decrement page number
     def increment_page():
         st.session_state.page += 1
+        #scroll up back to top after clicking a button
+        st.components.v1.html(js, height=0)
 
     def decrement_page():
         st.session_state.page -= 1
+        #scroll up back to top after clicking a button
+        st.components.v1.html(js, height=0)
 
     # Get the current page number
     current_page = st.session_state.page
@@ -117,14 +121,11 @@ def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_ke
     if st.session_state.page > 1:
         if (text_search and len(df_search) > 0) or not text_search:
             col_03.button("◀", on_click=decrement_page, key=decrement_key)
-            #scroll up back to top after clicking a button
-            st.components.v1.html(js, height=0)
+            
             
     if st.session_state.page < total_pages:
         if (text_search and (total_pages_search!=1 and current_page!=total_pages_search)) or not text_search:
             col_05.button("▶", on_click=increment_page, key=increment_key)
-            #scroll up back to top after clicking a button
-            st.components.v1.html(js, height=0)
 
     # Check if text_search has changed since the last run
     if 'last_text_search' not in st.session_state or st.session_state.last_text_search != text_search:
