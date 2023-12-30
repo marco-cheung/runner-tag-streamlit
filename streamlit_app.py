@@ -111,24 +111,21 @@ if 'last_text_search' not in st.session_state or st.session_state.last_text_sear
 current_page = st.session_state.page
 
 
-def display_search_results_and_page_info():
-    if text_search:
-        with col1:
-            if len(df_search) > 0:
-                st.markdown(f"<p style='font-size:18px;'>{len(df_search)} photos were found.<br>搵到{len(df_search)} 張相</p>", unsafe_allow_html=True)
-            else:
-                st.markdown(f"<p style='font-size:18px;'>No photos were found, try searching with part of the number.<br>唔好意思搵唔到相，試下輸入部分號碼搜尋。</p>", unsafe_allow_html=True)
+if text_search:
+    with col1:
+        if len(df_search) > 0:
+            st.markdown(f"<p style='font-size:18px;'>{len(df_search)} photos were found.<br>搵到{len(df_search)} 張相</p>", unsafe_allow_html=True)
+        else:
+            st.markdown(f"<p style='font-size:18px;'>No photos were found, try searching with part of the number.<br>唔好意思搵唔到相，試下輸入部分號碼搜尋。</p>", unsafe_allow_html=True)
 
-        with col4:
-            if len(df_search) > 0:
-                st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages_search}</p>", unsafe_allow_html=True)
+    with col4:
+        if len(df_search) > 0:
+            st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages_search}</p>", unsafe_allow_html=True)
 
-    # If no input of text_search...
-    else:
-        with col4:
-            st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages}</p>", unsafe_allow_html=True)
-
-display_search_results_and_page_info()
+# If no input of text_search...
+else:
+    with col4:
+        st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages}</p>", unsafe_allow_html=True)
 
 # Filter dataframe for the selected page
 start_index = (st.session_state.page - 1) * images_per_page
@@ -161,5 +158,3 @@ else:
         with cols[n_row%N_cards_per_row]:
             st.caption(f"{row['event'].strip()} - {row['event_time'].strip()} ")
             st.markdown(f'<a href="{row["image_path"]}"><img src="{row["image_path"]}" width="350"></a>', unsafe_allow_html=True)
-
-display_search_results_and_page_info()
