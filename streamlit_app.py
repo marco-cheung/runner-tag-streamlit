@@ -206,8 +206,6 @@ with st.container():
         color: #333;
     }
     </style>
-    <div class="container">
-        🧩Created by: Marco Cheung<br>
-        📷Photo Source: Official Organizers
-    </div>
     """, unsafe_allow_html=True)
+
+st.text("🧩Created by: Marco Cheung \n📷Photo Source: Official Organizers")
