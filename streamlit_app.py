@@ -72,7 +72,6 @@ N_cards_per_row = 3
 images_per_page = 15
 
 # Calculate the total number of pages
-@st.cache_data
 def calculate_total_pages(df, images_per_page):
     total_pages = len(df) // images_per_page
     if len(df) % images_per_page:
@@ -83,49 +82,50 @@ total_pages = calculate_total_pages(df, images_per_page)
 total_pages_search = calculate_total_pages(df_search, images_per_page)
 
 
-# Display the page number and total number of pages
 # Add buttons for page navigation
-col1, col2, col3, col4, col5 = st.columns([8,8,.9,1,.2])
+col_a, col_b, col_c, col_d, col_e = st.columns([8,8,.9,1,.2])
 
-# Define functions to increment and decrement page number
-def increment_page():
-    st.session_state.page += 1
+def display_page_navigation(col_01, col_02, col_03, col_04 col_05):
+    # Define functions to increment and decrement page number
+    def increment_page():
+        st.session_state.page += 1
 
-def decrement_page():
-    st.session_state.page -= 1
+    def decrement_page():
+        st.session_state.page -= 1
 
-if st.session_state.page > 1:
-    if (text_search and len(df_search) > 0) or not text_search:
-        col3.button("◀", on_click=decrement_page)
+    if st.session_state.page > 1:
+        if (text_search and len(df_search) > 0) or not text_search:
+            col_03.button("◀", on_click=decrement_page, key="decrement_page_button")
 
-if st.session_state.page < total_pages:
-    if (text_search and len(df_search) > 0) or not text_search:
-        col5.button("▶", on_click=increment_page)
+    if st.session_state.page < total_pages:
+        if (text_search and len(df_search) > 0) or not text_search:
+            col_05.button("▶", on_click=increment_page, key="increment_page_button")
 
-# Check if text_search has changed since the last run
-if 'last_text_search' not in st.session_state or st.session_state.last_text_search != text_search:
-    # Navigate to the first page if text_search has changed
-    st.session_state.page = 1
-    st.session_state.last_text_search = text_search
+    # Check if text_search has changed since the last run
+    if 'last_text_search' not in st.session_state or st.session_state.last_text_search != text_search:
+        # Navigate to the first page if text_search has changed
+        st.session_state.page = 1
+        st.session_state.last_text_search = text_search
 
-current_page = st.session_state.page
+    current_page = st.session_state.page
 
+    if text_search:
+        with col_01:
+            if len(df_search) > 0:
+                st.markdown(f"<p style='font-size:18px;'>{len(df_search)} photos were found.<br>搵到{len(df_search)} 張相</p>", unsafe_allow_html=True)
+            else:
+                st.markdown(f"<p style='font-size:18px;'>No photos were found, try searching with part of the number.<br>唔好意思搵唔到相，試下輸入部分號碼搜尋。</p>", unsafe_allow_html=True)
 
-if text_search:
-    with col1:
-        if len(df_search) > 0:
-            st.markdown(f"<p style='font-size:18px;'>{len(df_search)} photos were found.<br>搵到{len(df_search)} 張相</p>", unsafe_allow_html=True)
-        else:
-            st.markdown(f"<p style='font-size:18px;'>No photos were found, try searching with part of the number.<br>唔好意思搵唔到相，試下輸入部分號碼搜尋。</p>", unsafe_allow_html=True)
+        with col_04:
+            if len(df_search) > 0:
+                st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages_search}</p>", unsafe_allow_html=True)
 
-    with col4:
-        if len(df_search) > 0:
-            st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages_search}</p>", unsafe_allow_html=True)
+    # If no input of text_search...
+    else:
+        with col_d:
+            st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages}</p>", unsafe_allow_html=True)
 
-# If no input of text_search...
-else:
-    with col4:
-        st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages}</p>", unsafe_allow_html=True)
+display_page_navigation(col_a, col_b, col_c, col_d, col_e)
 
 # Filter dataframe for the selected page
 start_index = (st.session_state.page - 1) * images_per_page
@@ -159,15 +159,7 @@ else:
             st.caption(f"{row['event'].strip()} - {row['event_time'].strip()} ")
             st.markdown(f'<a href="{row["image_path"]}"><img src="{row["image_path"]}" width="350"></a>', unsafe_allow_html=True)
 
-
-# Display the page number and total number of pages
 # Add buttons for page navigation
-col6, col7, col8, col9, col10 = st.columns([8,8,.9,1,.2])
+col_f, col_g, col_h, col_i, col_j = st.columns([8,8,.9,1,.2])
 
-if st.session_state.page > 1:
-    if (text_search and len(df_search) > 0) or not text_search:
-        col8.button("◀", on_click=decrement_page, key="unique_key")
-
-if st.session_state.page < total_pages:
-    if (text_search and len(df_search) > 0) or not text_search:
-        col10.button("▶", on_click=increment_page, key="unique_key")
+display_page_navigation(col_f, col_g, col_h, col_i, col_j)
