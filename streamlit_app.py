@@ -121,7 +121,7 @@ def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_ke
             st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages}</p>", unsafe_allow_html=True)
 
 with col_a:
-    if text_search::
+    if text_search:
         if len(df_search) > 0:
             st.markdown(f"<p style='font-size:18px;'>{len(df_search)} photos were found.<br>搵到{len(df_search)} 張相</p>", unsafe_allow_html=True)
         else:
