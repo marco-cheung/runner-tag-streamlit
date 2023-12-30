@@ -9,7 +9,7 @@ from io import BytesIO
 st.set_page_config(page_title="Running Photos - Bib Number Search 號碼布搵相", page_icon="🏃", layout="wide")  
 
 # Create three columns with different widths on the same row
-col_01, col_02, col_03 = st.columns([.2,2,2])
+col_01, col_02, col_03 = st.columns([.2,2,1.5])
 
 col_01.image("https://raw.githubusercontent.com/marco-cheung/runner-tag-streamlit/main/.streamlit/running-bib-icon.png", width=60)
 
