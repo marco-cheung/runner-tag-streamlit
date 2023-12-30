@@ -176,7 +176,7 @@ if text_search:
         # draw the card
         with cols[n_row%N_cards_per_row]:
             st.caption(f"Location 拍攝地點: {row['photo_location'].strip()}")
-            st.markdown(f'<a href="{row["image_path"]}"><img src="{row["image_path"]}" width="300"></a>', unsafe_allow_html=True)
+            st.markdown(f'<a href="{row["image_path"]}"><img src="{row["image_path"]}" width="200"></a>', unsafe_allow_html=True)
 
 else:
     # Display the images from the subset dataframe
@@ -187,7 +187,7 @@ else:
             cols = st.columns(N_cards_per_row, gap="large")
         with cols[n_row%N_cards_per_row]:
             st.caption(f"Location 拍攝地點: {row['photo_location'].strip()}")
-            st.markdown(f'<a href="{row["image_path"]}"><img src="{row["image_path"]}" width="300"></a>', unsafe_allow_html=True)
+            st.markdown(f'<a href="{row["image_path"]}"><img src="{row["image_path"]}" width="200"></a>', unsafe_allow_html=True)
 
 # Add buttons for page navigation
 col_f, col_g, col_h, col_i, col_j = st.columns([8,8,.9,1,.2])
