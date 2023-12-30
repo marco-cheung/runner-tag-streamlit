@@ -198,14 +198,8 @@ col_j_key = 'col_j_key'
 display_page_navigation(col_h, col_i, col_j, col_h_key, col_j_key)
 
 # Add footer
-with st.container():
-    st.markdown("""
-    <style>
-    .container {
-        background-color: #f0f0f5;
-        color: #333;
-    }
-    </style>
-    """, unsafe_allow_html=True)
+st.markdown("""
+    <hr style='border: dashed 1px lightgrey;'>
+""", unsafe_allow_html=True)
 
 st.text("🧩Created by: Marco Cheung \n📷Photo Source: Official Organizers")
