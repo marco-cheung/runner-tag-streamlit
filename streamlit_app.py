@@ -99,7 +99,7 @@ js = '''
      <script>
      var body = window.parent.document.querySelector(".main");
      console.log(body);
-     body.scrollTop = 0;
+     body.scrollTop = 20;
      </script>
      '''
 
