@@ -157,7 +157,7 @@ if text_search:
 
         # draw the card
         with cols[n_row%N_cards_per_row]:
-            st.caption(f"Time 時間: {row['event_time'].strip()}")
+            st.caption(f"Time 時間: {row['event_time'].strip()} | Location 地點: {row['event_place'].strip()}")
             st.markdown(f'<a href="{row["image_path"]}"><img src="{row["image_path"]}" width="300"></a>', unsafe_allow_html=True)
 
 else:
@@ -168,7 +168,7 @@ else:
             st.write("---")
             cols = st.columns(N_cards_per_row, gap="large")
         with cols[n_row%N_cards_per_row]:
-            st.caption(f"Time 時間: {row['event_time'].strip()}")
+            st.caption(f"Time 時間: {row['event_time'].strip()} | Location 地點: {row['event_place'].strip()}")
             st.markdown(f'<a href="{row["image_path"]}"><img src="{row["image_path"]}" width="300"></a>', unsafe_allow_html=True)
 
 # Add buttons for page navigation
