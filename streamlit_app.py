@@ -43,8 +43,6 @@ event_names = df['event'].unique()
 selected_event = st.selectbox('Select race 賽事選擇:', options=event_names)
 df_event = df[df['event'] == selected_event]
 
-# Now, selected_value holds the value selected by the user
-
 with st.form('input_form'):
     # Create two columns; adjust the ratio to your liking
     col1, col2 = st.columns([3,1]) 
