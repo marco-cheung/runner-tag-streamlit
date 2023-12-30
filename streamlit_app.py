@@ -117,9 +117,9 @@ st.markdown(
     """
 <style>
 button {
-    height: auto;
-    padding-top: 2px !important;
-    padding-bottom: 2px !important;
+    height: 5px;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
 }
 </style>
 """,
