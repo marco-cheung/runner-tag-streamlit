@@ -197,6 +197,7 @@ col_h_key = 'col_h_key'
 col_j_key = 'col_j_key'
 display_page_navigation(col_h, col_i, col_j, col_h_key, col_j_key)
 
+# Add footer
 with st.container():
     st.markdown("""
     <style>
