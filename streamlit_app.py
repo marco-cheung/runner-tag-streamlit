@@ -90,6 +90,20 @@ def calculate_total_pages(df_event, images_per_page):
 total_pages = calculate_total_pages(df_event, images_per_page)
 total_pages_search = calculate_total_pages(df_search, images_per_page)
 
+# Change button size
+st.markdown(
+    """
+<style>
+button {
+    height: 5px;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+}
+</style>
+""",
+    unsafe_allow_html=True,
+)
+
 # Add buttons for page navigation
 col_a, col_b, col_c, col_d, col_e = st.columns([8,8,.9,1,.2])
 
@@ -111,21 +125,6 @@ js = f"""
     }}
 </script>
 """
-
-# Change button size
-st.markdown(
-    """
-<style>
-button {
-    height: 5px;
-    padding-top: 5px !important;
-    padding-bottom: 5px !important;
-}
-</style>
-""",
-    unsafe_allow_html=True,
-)
-
 
 def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_key, increment_key):   
     # Define functions to increment and decrement page number
