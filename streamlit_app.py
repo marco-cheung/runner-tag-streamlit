@@ -130,8 +130,8 @@ def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_ke
         st.session_state.page = 1
         st.session_state.last_text_search = text_search
 
-        # Get the current page number
-        current_page = st.session_state.page
+    # Get the current page number
+    current_page = st.session_state.page
 
     if st.session_state.page > 1:
         if (text_search and len(df_search) > 0) or not text_search:
