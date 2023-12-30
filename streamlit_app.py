@@ -80,6 +80,17 @@ images_per_page = 12
 # Get the current page number
 #current_page = st.session_state.page
 
+# JavaScript code to scroll to the element with the ID 'image-display'
+js = f"""
+<script>
+    function scrollToTop(uniqueValue){{
+        var element = parent.document.getElementById('image-display');
+        element.scrollIntoView();
+    }}
+</script>
+"""
+
+
 # Calculate the total number of pages
 def calculate_total_pages(df_event, images_per_page):
     total_pages = len(df_event) // images_per_page
@@ -99,18 +110,6 @@ if text_search:
 
 # Add buttons for page navigation
 col_c, col_d, col_e = st.columns([.9,1,.2])
-
-#enable to scroll up back to top after clicking a button (with JavaScript)
-js = f"""
-<script>
-    function scrollToTop(uniqueValue){{
-        var button = parent.document.getElementById('cols');
-        if (button !== null && button.nextElementSibling !== null) {{
-            button.nextElementSibling.scrollIntoView();
-        }}
-    }}
-</script>
-"""
 
 def display_page_navigation(col_03, col_04, col_05, decrement_key, increment_key):   
     # Define functions to increment and decrement page number
@@ -164,6 +163,8 @@ end_index = start_index + images_per_page
 subset_df = df_event.iloc[start_index: end_index]
 subset_df_search = df_search.iloc[start_index: end_index]
 
+# Create an empty HTML element with a unique ID,
+st.markdown("<div id='image-display'></div>", unsafe_allow_html=True)
 
 # Show the filtered results
 if text_search:
