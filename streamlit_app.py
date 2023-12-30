@@ -91,9 +91,6 @@ total_pages = calculate_total_pages(df_event, images_per_page)
 total_pages_search = calculate_total_pages(df_search, images_per_page)
 
 
-# Add buttons for page navigation
-col_a, col_b, col_c, col_d, col_e = st.columns([8,8,.9,1,.2])
-
 #enable to scroll up back to top after clicking a button (with JavaScript)
 js = f"""
 <script>
@@ -121,6 +118,12 @@ def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_ke
     # Get the current page number
     current_page = st.session_state.page
 
+    # Check if text_search has changed since the last run
+    if 'last_text_search' not in st.session_state or st.session_state.last_text_search != text_search:
+        # Navigate to the first page if text_search has changed
+        st.session_state.page = 1
+        st.session_state.last_text_search = text_search
+
     if st.session_state.page > 1:
         if (text_search and len(df_search) > 0) or not text_search:
             col_03.button("◀", on_click=decrement_page, key=decrement_key)
@@ -129,12 +132,6 @@ def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_ke
     if st.session_state.page < total_pages:
         if (text_search and (total_pages_search!=1 and current_page!=total_pages_search)) or not text_search:
             col_05.button("▶", on_click=increment_page, key=increment_key)
-
-    # Check if text_search has changed since the last run
-    if 'last_text_search' not in st.session_state or st.session_state.last_text_search != text_search:
-        # Navigate to the first page if text_search has changed
-        st.session_state.page = 1
-        st.session_state.last_text_search = text_search
 
     if text_search:
         with col_04:
@@ -153,6 +150,8 @@ with col_a:
         else:
             st.markdown(f"<p style='font-size:18px;'>No photos were found, try searching with part of the number.<br>唔好意思搵唔到相，試下輸入部分號碼搜尋。</p>", unsafe_allow_html=True)
 
+# Add buttons for page navigation
+col_a, col_b, col_c, col_d, col_e = st.columns([8,8,.9,1,.2])
 col_c_key = 'col_c_key'
 col_e_key = 'col_e_key'
 display_page_navigation(col_a, col_b, col_c, col_d, col_e, col_c_key, col_e_key)
