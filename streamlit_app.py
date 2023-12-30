@@ -197,4 +197,5 @@ col_h_key = 'col_h_key'
 col_j_key = 'col_j_key'
 display_page_navigation(col_h, col_i, col_j, col_h_key, col_j_key)
 
-st.write("程式設計 Designed by: Marco Cheung | 賽事照片版權 Photo Copyright: 大會攝影 Official Photographers")
+st.write("Created by: Marco Cheung")
+st.write("Photo Copyright: 大會攝影師 Official Photographers")
