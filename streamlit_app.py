@@ -87,6 +87,8 @@ def calculate_total_pages(df_event, images_per_page):
 total_pages = calculate_total_pages(df_event, images_per_page)
 total_pages_search = calculate_total_pages(df_search, images_per_page)
 
+# Get the current page number
+current_page = st.session_state.page
 
 # Add buttons for page navigation
 col_a, col_b, col_c, col_d, col_e = st.columns([8,8,.9,1,.2])
