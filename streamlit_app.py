@@ -43,6 +43,9 @@ event_names = df['event'].unique()
 selected_event = st.selectbox('Select race 賽事選擇:', options=event_names)
 df_event = df[df['event'] == selected_event]
 
+# Create an empty HTML element with a unique ID,
+st.markdown("<div id='image-display'></div>", unsafe_allow_html=True)
+
 with st.form('input_form'):
     # Create two columns; adjust the ratio to your liking
     col1, col2 = st.columns([3,1]) 
@@ -62,9 +65,6 @@ st.markdown(
     f'<style>input[type="text"] {{ font-size: 18px; }}</style>',
     unsafe_allow_html=True
 )
-
-# Create an empty HTML element with a unique ID,
-st.markdown("<div id='image-display'></div>", unsafe_allow_html=True)
 
 # Initialize session state
 if 'page' not in st.session_state:
