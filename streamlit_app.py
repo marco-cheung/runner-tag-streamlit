@@ -164,13 +164,6 @@ else:
 # Add buttons for page navigation
 col6, col7, col8, col9, col10 = st.columns([8,8,.9,1,.2])
 
-# Define functions to increment and decrement page number
-def increment_page():
-    st.session_state.page += 1
-
-def decrement_page():
-    st.session_state.page -= 1
-
 if st.session_state.page > 1:
     if (text_search and len(df_search) > 0) or not text_search:
         col8.button("◀", on_click=decrement_page)
@@ -178,28 +171,3 @@ if st.session_state.page > 1:
 if st.session_state.page < total_pages:
     if (text_search and len(df_search) > 0) or not text_search:
         col10.button("▶", on_click=increment_page)
-
-# Check if text_search has changed since the last run
-if 'last_text_search' not in st.session_state or st.session_state.last_text_search != text_search:
-    # Navigate to the first page if text_search has changed
-    st.session_state.page = 1
-    st.session_state.last_text_search = text_search
-
-current_page = st.session_state.page
-
-
-if text_search:
-    with col6:
-        if len(df_search) > 0:
-            st.markdown(f"<p style='font-size:18px;'>{len(df_search)} photos were found.<br>搵到{len(df_search)} 張相</p>", unsafe_allow_html=True)
-        else:
-            st.markdown(f"<p style='font-size:18px;'>No photos were found, try searching with part of the number.<br>唔好意思搵唔到相，試下輸入部分號碼搜尋。</p>", unsafe_allow_html=True)
-
-    with col9:
-        if len(df_search) > 0:
-            st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages_search}</p>", unsafe_allow_html=True)
-
-# If no input of text_search...
-else:
-    with col9:
-        st.markdown(f"<p style='font-size:18px;'>{current_page}/{total_pages}</p>", unsafe_allow_html=True)
