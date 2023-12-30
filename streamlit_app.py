@@ -104,9 +104,9 @@ col_c, col_d, col_e = st.columns([.9,1,.2])
 js = f"""
 <script>
     function scrollToTop(uniqueValue){{
-        var textAreas = parent.document.querySelectorAll('section.main');
-        for (let index = 0; index < textAreas.length; index++) {{
-            textAreas[index].scrollTop = 30;
+        var button = parent.document.getElementById('col_05');
+        if (button !== null && button.nextElementSibling !== null) {{
+            button.nextElementSibling.scrollIntoView();
         }}
     }}
 </script>
