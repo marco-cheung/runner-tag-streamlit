@@ -173,11 +173,11 @@ def decrement_page():
 
 if st.session_state.page > 1:
     if (text_search and len(df_search) > 0) or not text_search:
-        col3.button("◀", on_click=decrement_page)
+        col8.button("◀", on_click=decrement_page)
 
 if st.session_state.page < total_pages:
     if (text_search and len(df_search) > 0) or not text_search:
-        col5.button("▶", on_click=increment_page)
+        col10.button("▶", on_click=increment_page)
 
 # Check if text_search has changed since the last run
 if 'last_text_search' not in st.session_state or st.session_state.last_text_search != text_search:
