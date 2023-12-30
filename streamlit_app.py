@@ -98,7 +98,7 @@ if text_search:
         st.markdown(f"<p style='font-size:18px;'>No photos were found, try searching with part of the number.<br>唔好意思搵唔到相，試下輸入部分號碼搜尋。</p>", unsafe_allow_html=True)
 
 # Add buttons for page navigation
-col_a, col_b, col_c, col_d, col_e = st.columns([8,8,.9,1,.2])
+col_c, col_d, col_e = st.columns([.9,1,.2])
 
 #enable to scroll up back to top after clicking a button (with JavaScript)
 js = f"""
@@ -112,7 +112,7 @@ js = f"""
 </script>
 """
 
-def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_key, increment_key):   
+def display_page_navigation(col_03, col_04, col_05, decrement_key, increment_key):   
     # Define functions to increment and decrement page number
     def increment_page():
         st.session_state.page += 1
@@ -154,7 +154,7 @@ def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_ke
 
 col_c_key = 'col_c_key'
 col_e_key = 'col_e_key'
-display_page_navigation(col_a, col_b, col_c, col_d, col_e, col_c_key, col_e_key)
+display_page_navigation(col_c, col_d, col_e, col_c_key, col_e_key)
 
 
 # Filter dataframe for the selected page
@@ -190,10 +190,10 @@ else:
             st.markdown(f'<a href="{row["image_path"]}"><img src="{row["image_path"]}" width="200"></a>', unsafe_allow_html=True)
 
 # Add buttons for page navigation
-col_f, col_g, col_h, col_i, col_j = st.columns([8,8,.9,1,.2])
+col_h, col_i, col_j = st.columns([.9,1,.2])
 col_h_key = 'col_h_key'
 col_j_key = 'col_j_key'
-display_page_navigation(col_f, col_g, col_h, col_i, col_j, col_h_key, col_j_key)
+display_page_navigation(col_h, col_i, col_j, col_h_key, col_j_key)
 
 
 
