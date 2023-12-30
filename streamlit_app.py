@@ -108,6 +108,9 @@ if text_search:
     else:
         st.markdown(f"<p style='font-size:18px;'>No photos were found, try searching with part of the number.<br>唔好意思搵唔到相，試下輸入部分號碼搜尋。</p>", unsafe_allow_html=True)
 
+# Create an empty HTML element with a unique ID,
+st.markdown("<div id='image-display'></div>", unsafe_allow_html=True)
+
 # Add buttons for page navigation
 col_c, col_d, col_e = st.columns([.9,1,.2])
 
@@ -163,8 +166,6 @@ end_index = start_index + images_per_page
 subset_df = df_event.iloc[start_index: end_index]
 subset_df_search = df_search.iloc[start_index: end_index]
 
-# Create an empty HTML element with a unique ID,
-st.markdown("<div id='image-display'></div>", unsafe_allow_html=True)
 
 # Show the filtered results
 if text_search:
