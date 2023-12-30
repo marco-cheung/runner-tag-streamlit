@@ -78,7 +78,7 @@ N_cards_per_row = 3
 images_per_page = 12
 
 # Get the current page number
-current_page = st.session_state.page
+#current_page = st.session_state.page
 
 # Calculate the total number of pages
 def calculate_total_pages(df_event, images_per_page):
@@ -113,6 +113,9 @@ js = f"""
 """
 
 def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_key, increment_key):
+    # Get the current page number
+    current_page = st.session_state.page
+    
     # Define functions to increment and decrement page number
     def increment_page():
         st.session_state.page += 1
@@ -123,9 +126,6 @@ def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_ke
         st.session_state.page -= 1
         #scroll up back to top after clicking a button
         st.components.v1.html(js + f"<script>scrollToTop({st.session_state.page});</script>", height=0)
-
-    # Get the current page number
-    current_page = st.session_state.page
 
     # Check if text_search has changed since the last run
     if 'last_text_search' not in st.session_state or st.session_state.last_text_search != text_search:
