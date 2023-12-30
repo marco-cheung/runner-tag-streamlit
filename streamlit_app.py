@@ -166,8 +166,8 @@ col6, col7, col8, col9, col10 = st.columns([8,8,.9,1,.2])
 
 if st.session_state.page > 1:
     if (text_search and len(df_search) > 0) or not text_search:
-        col8.button("◀", on_click=decrement_page)
+        col8.button("◀", on_click=decrement_page, key="unique_key")
 
 if st.session_state.page < total_pages:
     if (text_search and len(df_search) > 0) or not text_search:
-        col10.button("▶", on_click=increment_page)
+        col10.button("▶", on_click=increment_page, key="unique_key")
