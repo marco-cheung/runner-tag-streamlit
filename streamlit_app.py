@@ -85,6 +85,7 @@ total_pages_search = calculate_total_pages(df_search, images_per_page)
 # Add buttons for page navigation
 col_a, col_b, col_c, col_d, col_e = st.columns([8,8,.9,1,.2])
 
+@st.cache_data 
 def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_key, increment_key):
     # Define functions to increment and decrement page number
     def increment_page():
