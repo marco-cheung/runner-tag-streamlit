@@ -63,6 +63,9 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+# Create an empty HTML element with a unique ID,
+st.markdown("<div id='image-display'></div>", unsafe_allow_html=True)
+
 # Initialize session state
 if 'page' not in st.session_state:
     st.session_state.page = 1
@@ -100,9 +103,6 @@ def calculate_total_pages(df_event, images_per_page):
 
 total_pages = calculate_total_pages(df_event, images_per_page)
 total_pages_search = calculate_total_pages(df_search, images_per_page)
-
-# Create an empty HTML element with a unique ID,
-st.markdown("<div id='image-display'></div>", unsafe_allow_html=True)
 
 # Show the total number of photos found
 if text_search:
