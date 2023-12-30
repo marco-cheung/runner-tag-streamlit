@@ -100,7 +100,7 @@ def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_ke
             col_03.button("◀", on_click=decrement_page, key=decrement_key)
 
     if st.session_state.page < total_pages:
-        if (text_search and len(df_search) > 0) or not text_search:
+        if not text_search:
             col_05.button("▶", on_click=increment_page, key=increment_key)
 
     # Check if text_search has changed since the last run
