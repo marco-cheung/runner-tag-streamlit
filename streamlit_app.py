@@ -6,10 +6,7 @@ import requests
 from io import BytesIO
 
 # Page setup
-st.set_page_config(page_title="Running Photos - Bib Number Search 號碼布搵相", page_icon="🏃", layout="wide")
-
-# hidden div with anchor
-st.markdown("<div id='linkto_top'></div>", unsafe_allow_html=True)   
+st.set_page_config(page_title="Running Photos - Bib Number Search 號碼布搵相", page_icon="🏃", layout="wide")  
 
 # Create three columns with different widths on the same row
 col_a, col_b, col_c = st.columns([.2,2,2])
@@ -101,13 +98,9 @@ def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_ke
     # Define functions to increment and decrement page number
     def increment_page():
         st.session_state.page += 1
-        # add the link at the bottom of each page
-        st.markdown("<a href='#linkto_top'>Link to top</a>", unsafe_allow_html=True)
 
     def decrement_page():
         st.session_state.page -= 1
-        # add the link at the bottom of each page
-        st.markdown("<a href='#linkto_top'>Link to top</a>", unsafe_allow_html=True)
 
     # Get the current page number
     current_page = st.session_state.page
@@ -116,9 +109,27 @@ def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_ke
         if (text_search and len(df_search) > 0) or not text_search:
             col_03.button("◀", on_click=decrement_page, key=decrement_key)
 
+            js = '''
+                <script>
+                var body = window.parent.document.querySelector(".main");
+                console.log(body);
+                body.scrollTop = 0;
+                </script>
+                '''
+            st.components.v1.html(js)
+
     if st.session_state.page < total_pages:
         if (text_search and (total_pages_search!=1 and current_page!=total_pages_search)) or not text_search:
             col_05.button("▶", on_click=increment_page, key=increment_key)
+
+            js = '''
+                <script>
+                var body = window.parent.document.querySelector(".main");
+                console.log(body);
+                body.scrollTop = 0;
+                </script>
+                '''
+            st.components.v1.html(js)
 
     # Check if text_search has changed since the last run
     if 'last_text_search' not in st.session_state or st.session_state.last_text_search != text_search:
