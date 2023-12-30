@@ -101,15 +101,15 @@ def calculate_total_pages(df_event, images_per_page):
 total_pages = calculate_total_pages(df_event, images_per_page)
 total_pages_search = calculate_total_pages(df_search, images_per_page)
 
+# Create an empty HTML element with a unique ID,
+st.markdown("<div id='image-display'></div>", unsafe_allow_html=True)
+
 # Show the total number of photos found
 if text_search:
     if len(df_search) > 0:
         st.markdown(f"<p style='font-size:18px;'>{len(df_search)} photos were found.<br>搵到{len(df_search)} 張相</p>", unsafe_allow_html=True)
     else:
         st.markdown(f"<p style='font-size:18px;'>No photos were found, try searching with part of the number.<br>唔好意思搵唔到相，試下輸入部分號碼搜尋。</p>", unsafe_allow_html=True)
-
-# Create an empty HTML element with a unique ID,
-st.markdown("<div id='image-display'></div>", unsafe_allow_html=True)
 
 # Add buttons for page navigation
 col_c, col_d, col_e = st.columns([.9,1,.2])
