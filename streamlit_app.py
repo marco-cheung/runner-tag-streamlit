@@ -95,6 +95,11 @@ def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_ke
     def decrement_page():
         st.session_state.page -= 1
 
+    # Initialize variables before using them
+    text_search = None
+    total_pages_search = None
+    current_page = None
+
     if st.session_state.page > 1:
         if (text_search and len(df_search) > 0) or not text_search:
             col_03.button("◀", on_click=decrement_page, key=decrement_key)
