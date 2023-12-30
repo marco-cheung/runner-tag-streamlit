@@ -93,12 +93,11 @@ total_pages_search = calculate_total_pages(df_search, images_per_page)
 # Add buttons for page navigation
 col_a, col_b, col_c, col_d, col_e = st.columns([8,8,.9,1,.2])
 
-with col_a:
-    if text_search:
-        if len(df_search) > 0:
-            st.markdown(f"<p style='font-size:18px;'>{len(df_search)} photos were found.<br>搵到{len(df_search)} 張相</p>", unsafe_allow_html=True)
-        else:
-            st.markdown(f"<p style='font-size:18px;'>No photos were found, try searching with part of the number.<br>唔好意思搵唔到相，試下輸入部分號碼搜尋。</p>", unsafe_allow_html=True)
+if text_search:
+    if len(df_search) > 0:
+        st.markdown(f"<p style='font-size:18px;'>{len(df_search)} photos were found.<br>搵到{len(df_search)} 張相</p>", unsafe_allow_html=True)
+    else:
+        st.markdown(f"<p style='font-size:18px;'>No photos were found, try searching with part of the number.<br>唔好意思搵唔到相，試下輸入部分號碼搜尋。</p>", unsafe_allow_html=True)
 
 #enable to scroll up back to top after clicking a button (with JavaScript)
 js = f"""
