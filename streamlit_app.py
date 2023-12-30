@@ -197,4 +197,5 @@ col_h_key = 'col_h_key'
 col_j_key = 'col_j_key'
 display_page_navigation(col_h, col_i, col_j, col_h_key, col_j_key)
 
-st.text("🧩Created by: Marco Cheung\n📷Photo Copyright: Official Photographers")
+with st.container():
+   st.write("🧩Created by: Marco Cheung\n📷Photo Source: Official Organizers")
