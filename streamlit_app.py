@@ -108,12 +108,12 @@ def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_ke
     def increment_page():
         st.session_state.page += 1
         #scroll up back to top after clicking a button
-        st.components.v1.html(js, height=-50)
+        st.components.v1.html(js, height=50)
 
     def decrement_page():
         st.session_state.page -= 1
         #scroll up back to top after clicking a button
-        st.components.v1.html(js, height=-50)
+        st.components.v1.html(js, height=50)
 
     # Get the current page number
     current_page = st.session_state.page
