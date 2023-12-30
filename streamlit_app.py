@@ -109,7 +109,7 @@ def display_page_navigation(col_01, col_02, col_03, col_04, col_05, decrement_ke
         st.session_state.page = 1
         st.session_state.last_text_search = text_search
 
-    #current_page = st.session_state.page
+    current_page = st.session_state.page
 
     if text_search:
         with col_01:
