@@ -69,7 +69,7 @@ df_search = df[mask]
 N_cards_per_row = 3
 
 # Number of images per page
-images_per_page = 15
+images_per_page = 12
 
 # Calculate the total number of pages
 def calculate_total_pages(df, images_per_page):
