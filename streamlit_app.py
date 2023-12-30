@@ -201,6 +201,6 @@ display_page_navigation(col_h, col_i, col_j, col_h_key, col_j_key)
 st.markdown("""
     <hr style='border: dashed 1px lightgrey; margin-bottom: 0;'>
     <p style='font-size: 13px; text-align: right;'>
-    🧩 Apps Creator: <a href='https://github.com/marco-cheung/runner-tag-streamlit' target='_blank'>@marco-cheung</a> <br>
+    🧩 Creator: <a href='https://github.com/marco-cheung/runner-tag-streamlit' target='_blank'>@marco-cheung</a> <br>
     📷 Photo Source: Official Organizers</p>
 """, unsafe_allow_html=True)
