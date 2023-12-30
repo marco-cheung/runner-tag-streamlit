@@ -36,12 +36,12 @@ def load_df(sheet_url):
 
 df = pd.read_csv(url, dtype=str)
 
-# Apply a selectbox to the df's 'event_name' column
-event_names = df['event_name'].unique()
+# Apply a selectbox to the df's 'event' column
+event_names = df['event'].unique()
 
 # Select event for df
-selected_value = st.selectbox('賽事選擇 Select race:', options=event_names)
-df_event = df[df['event_name'] == selected_value]
+selected_event = st.selectbox('賽事選擇 Select race:', options=event_names)
+df_event = df[df['event'] == selected_event]
 
 # Now, selected_value holds the value selected by the user
 
