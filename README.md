@@ -4,7 +4,7 @@
 
 **A open, freely accessible runner image platform using bib number tag search.**
 
-Link: [Runner Tag Platform](https://runner-tag.streamlit.app/)
+Webapp link: [Runner Tag Platform](https://runner-tag.streamlit.app/)
 
 This Streamlit app allows you to search for runner images using bib number tags. It provides an open and accessible platform for runners to find and view their images from various races. With just a few clicks, you can easily locate and share your race photos. 
 
