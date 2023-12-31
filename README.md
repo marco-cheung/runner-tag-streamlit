@@ -6,7 +6,7 @@ Webapp link: [Runner Tag Platform](https://runner-tag.streamlit.app/)
 
 <img src="https://github.com/marco-cheung/runner-tag-streamlit/blob/main/.streamlit/index_page.png" alt="Streamlit app" style="margin-top:40px"></img>
 
-# About the app
+# Intro
 This [Streamlit app](https://runner-tag.streamlit.app/) serves as an open and accessible platform for runners to find and view their images using RBN search.
 
 Enjoy the convenience and simplicity of this app built with Streamlit, an open-source Python framework for creating web applications. Start exploring and reliving your running memories today!
@@ -35,8 +35,16 @@ This platform utilizes two main computer vision techniques:
 
     To help improve the ability of our model to generalize and thus perform more effectively on unseen images, image augmentation techniques were applied to expand data size for training. As a result, a total of 8703 images were used to train the model.
 
-2. **Optical Character Recognition (OCR)**: Once bib number area is isolated from each image using YOLOv8, OCR was used to detect and interpret the characters in the cropped bib number image. After comparing results from different open-source OCR models (e.g. EasyOCR, PaddleOCR, Tesseract OCR), PaddleOCR turned out to be the best "out-of-the-box" tool for RBN recognition in our use case. This allows us to tag hundreds of thousands of images in reliable and efficient way.
+    Here is an example of our custom-trained model running on a image using [Roboflow Inference](https://universe.roboflow.com/marco-cheung/bib-number-labeling/model/14): 
+
+    Feel free to check out [here](https://universe.roboflow.com/marco-cheung/bib-number-labeling/model/14) if you also want to get a try on using this pre-trained bib number labeling computer vision model on-cloud :)
+
+2. **Optical Character Recognition (OCR)**: Once bib number area is isolated from each image using YOLOv8, OCR was used to detect and interpret the characters in the cropped bib number image. After comparing results from different open-source OCR models (e.g. [EasyOCR](https://github.com/JaidedAI/EasyOCR), [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR), [Tesseract OCR](https://github.com/tesseract-ocr/tesseract), etc), PaddleOCR turned out to be the best "out-of-the-box" tool with the highest accuracy for RBN recognition in our use case. This allows us to tag hundreds of thousands of images in reliable and efficient way.
 
 # License
 
 This project is open source and freely accessible under MIT license. I personally strongly believe in the power of open source and welcome everyone to use, modify, and distribute the code.
+
+# Contact Author
+Github: [marco-cheung] (https://github.com/marco-cheung)
+Linkedin: 
