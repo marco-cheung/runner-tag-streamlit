@@ -112,7 +112,7 @@ if text_search:
 
 # Apply CSS to the specific columns only
 st.write('''<style>
-[data-testid="column"]:nth-child(4) {
+[data-testid="column"]:nth-child(5) {
     width: calc(33.3333% - 1rem) !important;
     flex: 1 1 calc(33.3333% - 1rem) !important;
     min-width: calc(33% - 1rem) !important;
