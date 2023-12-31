@@ -6,16 +6,20 @@ Webapp link: [Runner Tag Platform](https://runner-tag.streamlit.app/)
 
 <img src="https://github.com/marco-cheung/runner-tag-streamlit/blob/main/.streamlit/index_page.png" alt="Streamlit app" style="margin-top:40px"></img>
 
-# Intro
+## Intro
 This [Streamlit app](https://runner-tag.streamlit.app/) serves as an open and accessible platform for runners to find and view their images using RBN search.
 
 Enjoy the convenience and simplicity of this app built with Streamlit, an open-source Python framework for creating web applications. Start exploring and reliving your running memories today!
 
-# Getting Started
+## Getting Started
 
 To get started with our platform, simply enter the bib number you're interested in into the search bar. Our system will then locate and display all images tagged with that bib number.
 
-# How It Works
+## Demo Video
+
+https://github.com/marco-cheung/runner-tag-streamlit/assets/29329279/a63b5465-1eb1-456d-a056-b129473bdaa7
+
+## How It Works
 
 This platform utilizes two main computer vision techniques:
 
@@ -41,9 +45,12 @@ This platform utilizes two main computer vision techniques:
 
 2. **Optical Character Recognition (OCR)**: Once bib number area is isolated from each image using YOLOv8, OCR was used to detect and interpret the characters in the cropped bib number image. After comparing results from different open-source OCR models (e.g. [EasyOCR](https://github.com/JaidedAI/EasyOCR), [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR), [Tesseract OCR](https://github.com/tesseract-ocr/tesseract), etc), PaddleOCR turned out to be the best "out-of-the-box" tool with the highest accuracy for RBN recognition in our use case. This allows us to tag hundreds of thousands of images in reliable and efficient way.
 
-# License
+## License
 
 This project is open source and freely accessible under MIT license. I personally strongly believe in the power of open source and welcome everyone to use, modify, and distribute the code.
 
-# Contact
+## Contact
+
 [Linkedin](https://www.linkedin.com/in/marco-cheung-0b69b7137/)
+
+If you have suggestions for improvements or want to report a bug, please open an issue. Thank you for your contribution.
