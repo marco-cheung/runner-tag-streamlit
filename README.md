@@ -47,7 +47,7 @@ This platform utilizes two main computer vision techniques:
 
 ## License
 
-This project is open source and freely accessible under MIT license. I personally strongly believe in the power of open source and welcome everyone to use, modify, and distribute the code.
+This project is open source and freely accessible under MIT license.
 
 ## Contact
 
