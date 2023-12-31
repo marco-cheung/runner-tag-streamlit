@@ -123,9 +123,9 @@ st.write('''<style>
 st.write('''<style>
 [data-testid="column"][class="st-emotion-cache-hwawiw e1f1d6gn3"]
 {
-    width: calc(30% - 1rem) !important;
-    flex: 1 1 calc(30% - 1rem) !important;
-    min-width: calc(30% - 1rem) !important;
+    width: calc(20% - 1rem) !important;
+    flex: 1 1 calc(20% - 1rem) !important;
+    min-width: calc(20% - 1rem) !important;
 }
 </style>''', unsafe_allow_html=True)
 
@@ -140,7 +140,7 @@ st.write('''<style>
 
 
 # Add buttons for page navigation
-col_c, col_d, col_e = st.columns(3)
+col_c, col_d, col_e = st.columns([.9,1,.2])
 
 def display_page_navigation(col_03, col_04, col_05, decrement_key, increment_key):   
     # Define functions to increment and decrement page number
