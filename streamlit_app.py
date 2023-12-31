@@ -180,7 +180,7 @@ if text_search:
             st.caption(f"Location 拍攝地點: {row['photo_location'].strip()}")
             st.markdown(f'<a href="{row["image_path"]}"><img src="{row["image_path"]}" width="200"></a>', unsafe_allow_html=True)
             # Create a button with a hyperlink to the Facebook share URL
-            st.markdown(f'<a href="https://www.facebook.com/sharer/sharer.php?u={row["image_path"]}" target="_blank"><button style="border:none;background:none;"><img src="https://github.com/marco-cheung/runner-tag-streamlit/blob/main/.streamlit/fb-icon.png" width="48" height="48"></button></a>', unsafe_allow_html=True)
+            st.markdown(f'<a href="https://www.facebook.com/sharer/sharer.php?u={row["image_path"]}" target="_blank"><button style="border:none;background:none;"><img src="https://raw.githubusercontent.com/marco-cheung/runner-tag-streamlit/main/.streamlit/fb-icon.png" width="15" height="15"></button></a>', unsafe_allow_html=True)
 
 else:
     # Display the images from the subset dataframe
@@ -193,7 +193,7 @@ else:
             st.caption(f"Location 拍攝地點: {row['photo_location'].strip()}")
             st.markdown(f'<a href="{row["image_path"]}"><img src="{row["image_path"]}" width="200"></a>', unsafe_allow_html=True)
             # Create a button with a hyperlink to the Facebook share URL
-            st.markdown(f'<a href="https://www.facebook.com/sharer/sharer.php?u={row["image_path"]}" target="_blank"><button style="border:none;background:none;"><img src="https://github.com/marco-cheung/runner-tag-streamlit/blob/main/.streamlit/fb-icon.png" width="48" height="48"></button></a>', unsafe_allow_html=True)
+            st.markdown(f'<a href="https://www.facebook.com/sharer/sharer.php?u={row["image_path"]}" target="_blank"><button style="border:none;background:none;"><img src="https://raw.githubusercontent.com/marco-cheung/runner-tag-streamlit/main/.streamlit/fb-icon.png" width="15" height="15"></button></a>', unsafe_allow_html=True)
 
 # Add buttons for page navigation
 col_h, col_i, col_j = st.columns([.9,1,.2])
