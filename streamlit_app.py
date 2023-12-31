@@ -121,7 +121,7 @@ st.write('''<style>
 </style>''', unsafe_allow_html=True)
 
 st.write('''<style>
-[data-testid="column"][class="st-emotion-cache-j5r0tf e1f1d6gn3"]
+[data-testid="column"][class="st-emotion-cache-hwawiw e1f1d6gn3"]
 {
     width: calc(33.3333% - 1rem) !important;
     flex: 1 1 calc(33.3333% - 1rem) !important;
@@ -130,7 +130,7 @@ st.write('''<style>
 </style>''', unsafe_allow_html=True)
 
 st.write('''<style>
-[data-testid="column"][class="st-emotion-cache-1yycg8b e1f1d6gn3"]
+[data-testid="column"][class="st-emotion-cache-x1zr6j e1f1d6gn3"]
 {
     width: calc(33.3333% - 1rem) !important;
     flex: 1 1 calc(33.3333% - 1rem) !important;
