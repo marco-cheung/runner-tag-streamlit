@@ -140,7 +140,7 @@ st.write('''<style>
 
 
 # Add buttons for page navigation
-col_c, col_d, col_e = st.columns(3)
+col_c, col_d, col_e = st.columns([.4,.2,.4])
 
 def display_page_navigation(col_03, col_04, col_05, decrement_key, increment_key):   
     # Define functions to increment and decrement page number
