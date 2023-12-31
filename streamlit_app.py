@@ -112,7 +112,7 @@ if text_search:
 
 # Apply CSS to the specific columns only
 st.write('''<style>
-[data-testid="column"][class="st-emotion-cache-1rrbo1k e1f1d6gn3"]
+[data-testid="column"][class="st-emotion-cache-1hm7mou e1f1d6gn3"]
 {
     width: calc(30% - 1rem) !important;
     flex: 1 1 calc(30% - 1rem) !important;
@@ -130,7 +130,7 @@ st.write('''<style>
 </style>''', unsafe_allow_html=True)
 
 st.write('''<style>
-[data-testid="column"][class="st-emotion-cache-x1zr6j e1f1d6gn3"]
+[data-testid="column"][class="st-emotion-cache-ytkq5y e1f1d6gn3"]
 {
     width: calc(30% - 1rem) !important;
     flex: 1 1 calc(30% - 1rem) !important;
@@ -140,7 +140,7 @@ st.write('''<style>
 
 
 # Add buttons for page navigation
-col_c, col_d, col_e = st.columns([.9,.9,.2])
+col_c, col_d, col_e = st.columns(3)
 
 def display_page_navigation(col_03, col_04, col_05, decrement_key, increment_key):   
     # Define functions to increment and decrement page number
