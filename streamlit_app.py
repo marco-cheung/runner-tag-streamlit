@@ -112,29 +112,11 @@ if text_search:
 
 # Apply CSS to the specific columns only
 st.write('''<style>
-[data-testid="column"][class="st-emotion-cache-1rrbo1k e1f1d6gn3"]
+[data-testid="column"][class="st-emotion-cache-1x23qhl e1f1d6gn3"]
 {
-    width: calc(30% - 1rem) !important;
-    flex: 1 1 calc(30% - 1rem) !important;
-    min-width: calc(30% - 1rem) !important;
-}
-</style>''', unsafe_allow_html=True)
-
-st.write('''<style>
-[data-testid="column"][class="st-emotion-cache-hwawiw e1f1d6gn3"]
-{
-    width: calc(40% - 1rem) !important;
-    flex: 1 1 calc(40% - 1rem) !important;
-    min-width: calc(40% - 1rem) !important;
-}
-</style>''', unsafe_allow_html=True)
-
-st.write('''<style>
-[data-testid="column"][class="st-emotion-cache-x1zr6j e1f1d6gn3"]
-{
-    width: calc(30% - 1rem) !important;
-    flex: 1 1 calc(30% - 1rem) !important;
-    min-width: calc(30% - 1rem) !important;
+    width: calc(33.3333%% - 1rem) !important;
+    flex: 1 1 calc(33.3333%% - 1rem) !important;
+    min-width: calc(33.3333%% - 1rem) !important;
 }
 </style>''', unsafe_allow_html=True)
 
