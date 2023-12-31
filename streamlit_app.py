@@ -121,7 +121,7 @@ st.write('''<style>
 </style>''', unsafe_allow_html=True)
 
 st.write('''<style>
-[data-testid="column"][class="st-emotion-cache-hwawiw e1f1d6gn3"]
+[data-testid="column"][class="st-emotion-cache-j5r0tf e1f1d6gn3"]
 {
     width: calc(33.3333% - 1rem) !important;
     flex: 1 1 calc(33.3333% - 1rem) !important;
@@ -130,7 +130,7 @@ st.write('''<style>
 </style>''', unsafe_allow_html=True)
 
 st.write('''<style>
-[data-testid="column"][class="st-emotion-cache-x1zr6j e1f1d6gn3"]
+[data-testid="column"][class="st-emotion-cache-1yycg8b e1f1d6gn3"]
 {
     width: calc(33.3333% - 1rem) !important;
     flex: 1 1 calc(33.3333% - 1rem) !important;
@@ -140,7 +140,7 @@ st.write('''<style>
 
 
 # Add buttons for page navigation
-col_c, col_d, col_e = st.columns([.4,.2,.4])
+col_c, col_d, col_e = st.columns([.9,1,.2])
 
 def display_page_navigation(col_03, col_04, col_05, decrement_key, increment_key):   
     # Define functions to increment and decrement page number
