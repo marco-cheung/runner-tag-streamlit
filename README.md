@@ -15,6 +15,10 @@ Enjoy the convenience and simplicity of this app built with Streamlit, an open-s
 
 To get started with our platform, simply enter the bib number you're interested in into the search bar. Our system will then locate and display all images tagged with that bib number.
 
+# Demo Video (~13s)
+
+https://github.com/marco-cheung/runner-tag-streamlit/assets/29329279/a63b5465-1eb1-456d-a056-b129473bdaa7
+
 # How It Works
 
 This platform utilizes two main computer vision techniques:
