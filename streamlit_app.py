@@ -202,7 +202,7 @@ else:
             st.markdown(f'<a href="{row["image_path"]}"><img src="{row["image_path"]}" width="200"></a>', unsafe_allow_html=True)
 
 # Add buttons for page navigation
-col_h, col_i, col_j = st.columns([.9,1,.2])
+col_h, col_i, col_j = st.columns([.3,.3,.3])
 col_h_key = 'col_h_key'
 col_j_key = 'col_j_key'
 display_page_navigation(col_h, col_i, col_j, col_h_key, col_j_key)
