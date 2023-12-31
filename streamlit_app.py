@@ -120,6 +120,24 @@ st.write('''<style>
 }
 </style>''', unsafe_allow_html=True)
 
+st.write('''<style>
+[data-testid="column"][class="st-emotion-cache-hwawiw e1f1d6gn3"]
+{
+    width: calc(33.3333% - 1rem) !important;
+    flex: 1 1 calc(33.3333% - 1rem) !important;
+    min-width: calc(33% - 1rem) !important;
+}
+</style>''', unsafe_allow_html=True)
+
+st.write('''<style>
+[data-testid="column"][class="st-emotion-cache-x1zr6j e1f1d6gn3"]
+{
+    width: calc(33.3333% - 1rem) !important;
+    flex: 1 1 calc(33.3333% - 1rem) !important;
+    min-width: calc(33% - 1rem) !important;
+}
+</style>''', unsafe_allow_html=True)
+
 
 # Add buttons for page navigation
 col_c, col_d, col_e = st.columns([.9,1,.2])
