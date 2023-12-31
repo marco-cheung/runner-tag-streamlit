@@ -179,6 +179,8 @@ if text_search:
         with cols[n_row%N_cards_per_row]:
             st.caption(f"Location 拍攝地點: {row['photo_location'].strip()}")
             st.markdown(f'<a href="{row["image_path"]}"><img src="{row["image_path"]}" width="200"></a>', unsafe_allow_html=True)
+            # Create a button with a hyperlink to the Facebook share URL
+            st.markdown(f'<a href="https://www.facebook.com/sharer/sharer.php?u={row["image_path"]}" target="_blank"><button>Facebook</button></a>', unsafe_allow_html=True)
 
 else:
     # Display the images from the subset dataframe
@@ -190,6 +192,8 @@ else:
         with cols[n_row%N_cards_per_row]:
             st.caption(f"Location 拍攝地點: {row['photo_location'].strip()}")
             st.markdown(f'<a href="{row["image_path"]}"><img src="{row["image_path"]}" width="200"></a>', unsafe_allow_html=True)
+            # Create a button with a hyperlink to the Facebook share URL
+            st.markdown(f'<a href="https://www.facebook.com/sharer/sharer.php?u={row["image_path"]}" target="_blank"><button>Facebook</button></a>', unsafe_allow_html=True)
 
 # Add buttons for page navigation
 col_h, col_i, col_j = st.columns([.9,1,.2])
