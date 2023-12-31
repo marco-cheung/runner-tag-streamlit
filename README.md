@@ -36,9 +36,7 @@ This platform utilizes two main computer vision techniques:
     To help improve the ability of our model to generalize and thus perform more effectively on unseen images, image augmentation techniques were applied to expand data size for training. As a result, a total of 8703 images were used to train the model.
 
     Here is an example of our custom-trained model running on a image using [Roboflow Inference](https://universe.roboflow.com/marco-cheung/bib-number-labeling/model/14): 
-
     <img src="https://github.com/marco-cheung/runner-tag-streamlit/blob/main/.streamlit/running-bib-detection.png" alt="Running bib detection" style="margin-top:20px"></img>
-
     Feel free to check out [here](https://universe.roboflow.com/marco-cheung/bib-number-labeling/model/14) if you also want to get a try on using the custom-trained model API!
 
 2. **Optical Character Recognition (OCR)**: Once bib number area is isolated from each image using YOLOv8, OCR was used to detect and interpret the characters in the cropped bib number image. After comparing results from different open-source OCR models (e.g. [EasyOCR](https://github.com/JaidedAI/EasyOCR), [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR), [Tesseract OCR](https://github.com/tesseract-ocr/tesseract), etc), PaddleOCR turned out to be the best "out-of-the-box" tool with the highest accuracy for RBN recognition in our use case. This allows us to tag hundreds of thousands of images in reliable and efficient way.
