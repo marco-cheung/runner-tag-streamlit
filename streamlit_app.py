@@ -93,7 +93,6 @@ js = f"""
 </script>
 """
 
-
 # Calculate the total number of pages
 def calculate_total_pages(df_event, images_per_page):
     total_pages = len(df_event) // images_per_page
@@ -111,10 +110,19 @@ if text_search:
     else:
         st.markdown(f"<p style='font-size:18px;'>No photos were found, try searching with part of the number.<br>唔好意思搵唔到相，試下輸入部分號碼搜尋。</p>", unsafe_allow_html=True)
 
-# Align elements horizontally on mobile
+# Apply CSS to the specific columns only
 st.write('''<style>
-
-[data-testid="element-container"] {
+[data-testid="stColumns"]:nth-child(3) > div > div {
+    width: calc(33.3333% - 1rem) !important;
+    flex: 1 1 calc(33.3333% - 1rem) !important;
+    min-width: calc(33% - 1rem) !important;
+}
+[data-testid="stColumns"]:nth-child(4) > div > div {
+    width: calc(33.3333% - 1rem) !important;
+    flex: 1 1 calc(33.3333% - 1rem) !important;
+    min-width: calc(33% - 1rem) !important;
+}
+[data-testid="stColumns"]:nth-child(5) > div > div {
     width: calc(33.3333% - 1rem) !important;
     flex: 1 1 calc(33.3333% - 1rem) !important;
     min-width: calc(33% - 1rem) !important;
