@@ -49,8 +49,6 @@ This platform utilizes two main computer vision techniques:
 
 This project is open source and freely accessible under MIT license.
 
-## Contact
-
-[Linkedin](https://www.linkedin.com/in/marco-cheung-0b69b7137/)
+## Contribution
 
 If you have suggestions for improvements or want to report a bug, please open an issue. Thank you for your contribution.
