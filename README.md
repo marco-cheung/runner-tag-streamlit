@@ -7,13 +7,17 @@ Webapp link: [Runner Tag Platform](https://runner-tag.streamlit.app/)
 <img src="https://github.com/marco-cheung/runner-tag-streamlit/blob/main/.streamlit/index_page.png" alt="Streamlit app" style="margin-top:40px"></img>
 
 ## Intro
-This [Streamlit app](https://runner-tag.streamlit.app/) serves as an open and accessible platform for runners to find and view their images using bib number search.
+This [Streamlit app](https://runner-tag.streamlit.app/) is designed to be a user-friendly and accessible platform for runners. Its primary function is to enable users to search for and view their race photos using bib number search.
 
-Every running race may have hundreds of photos taken by photographers. As a marathon runner, I always dream about building a web application that allows runners to find photos where they appear. Using this app built with Steamlit, an open-source Python framework for creating web applications, it makes me possible to achieve this goal!
+In a running race, photographers may capture hundreds of thousands of images. These photos are a valuable memento for the participants, capturing their reviving moments and achievement. However, finding one's own photos amidst such a vast collection can be like looking for a needle in a haystack.
+
+As a marathon runner myself, I understand this challenge firsthand. The desire to easily locate and view my own race photos led me to dream of creating a solution - a web application specifically designed to simplify this process for runners. This service uses advanced AI technology to tag photos with the bib numbers of the runners featured in them.
+
+Earlier before, I joined a half-marathon race in Hong Kong and soon realized that it was painful to search and find my photos one-by-one in official photo website (with 21229 photos in total @.@), that's why I decided to build on this platform for these race photos. I hope this service not only enhance race experience of runners, but also enable event event organizer to provide a value-added service for runners after the race.
 
 ## Getting Started
 
-To get started with our platform, simply enter the bib number you're interested in into the search bar. Our system will then locate and display all images tagged with that bib number.
+To get started with our platform, simply enter the bib number you're interested in into the search bar, and the application will retrieve all photos where that bib number (partially) appears.
 
 ## Demo Video
 
@@ -70,7 +74,7 @@ To summarize, here’s how to build this platform to tag bib numbers in a few st
 
 **6. Export and save results in a Google Spreadsheet**
 
-**7. Build a web service using Streamlit for end-users to respond with the result**
+**7. Build a web service on Streamlit Community Cloud ((the free hosting and deployment service) for end-users to respond with the result**
 
 ## Moving forward
 
