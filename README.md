@@ -1,13 +1,13 @@
 # Welcome to Runner Tag App👋
 
-**A open, freely accessible runner image search platform using racing bib number (RBN).**
+**A open, freely accessible runner image search platform using racing bib number.**
 
 Webapp link: [Runner Tag Platform](https://runner-tag.streamlit.app/)
 
 <img src="https://github.com/marco-cheung/runner-tag-streamlit/blob/main/.streamlit/index_page.png" alt="Streamlit app" style="margin-top:40px"></img>
 
 ## Intro
-This [Streamlit app](https://runner-tag.streamlit.app/) serves as an open and accessible platform for runners to find and view their images using RBN search.
+This [Streamlit app](https://runner-tag.streamlit.app/) serves as an open and accessible platform for runners to find and view their images using bib number search.
 
 Every running race may have hundreds of photos taken by photographers. As a marathon runner, I always dream about building a web application that allows runners to find photos where they appear. Using this app built with Steamlit, an open-source Python framework for creating web applications, it makes me possible to achieve this goal!
 
@@ -43,7 +43,7 @@ This platform utilizes two main computer vision techniques:
     <img src="https://github.com/marco-cheung/runner-tag-streamlit/blob/main/.streamlit/running-bib-detection.png" alt="Running bib detection" style="margin-top:20px"></img>
     Feel free to check out [here](https://universe.roboflow.com/marco-cheung/bib-number-labeling/model/14) if you also want to get a try on using the custom-trained model API!
 
-2. **Optical Character Recognition (OCR)**: Once bib number area is isolated from each image using YOLOv8, OCR was used to detect and interpret the characters in the cropped bib number image. After comparing results from different open-source OCR models (e.g. [EasyOCR](https://github.com/JaidedAI/EasyOCR), [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR), [Tesseract OCR](https://github.com/tesseract-ocr/tesseract), etc), PaddleOCR turned out to be the best "out-of-the-box" tool with the highest accuracy for RBN recognition in our use case. This allows us to tag hundreds of thousands of images in reliable and efficient way.
+2. **Optical Character Recognition (OCR)**: Once bib number area is isolated from each image using YOLOv8, OCR was used to detect and interpret the characters in the cropped bib number image. After comparing results from different open-source OCR models (e.g. [EasyOCR](https://github.com/JaidedAI/EasyOCR), [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR), [Tesseract OCR](https://github.com/tesseract-ocr/tesseract), etc), PaddleOCR turned out to be the best "out-of-the-box" tool with the highest accuracy for bib number recognition in our use case. This allows us to tag hundreds of thousands of images in reliable and efficient way.
 
 The main combo of this platform were Streamlit and Google Sheets (for easy collaboration and updates by non-technical users):
 
@@ -51,7 +51,16 @@ The main combo of this platform were Streamlit and Google Sheets (for easy colla
 **● Step 2: Use Streamlit to read the data from the Google Sheet**
 **● Step 3: Build the user interface and search functionality (e.g. textbox, pagination using buttons) using Streamlit**
 
-p.s. [This post](https://blog.streamlit.io/create-a-search-engine-with-streamlit-and-google-sheets/) motivated me to get my hands dirty to build my app by myself! 
+p.s. [This post](https://blog.streamlit.io/create-a-search-engine-with-streamlit-and-google-sheets/) motivated me to get my hands dirty to build my app by myself!
+
+To summarize, here’s how to build this platform to tag bib numbers in a few steps:
+
+**1. Train a custom object detection model (YOLOV8) to detect bib number**
+**2. Crop the bib number object(s) from original image**
+**3. Use OCR toolkits (PaddleOCR) to recognize the number in each cropped image.**
+**4. Wrap the above steps into a python function and run model inference on cloud (In my case, I'm using GCP Vertex AI instance).**
+**5. Export and save results in a Google Spreadsheet.**
+**6. Build a web service using Streamlit for end-users to respond with the result.**
 
 ## License
 
