@@ -55,12 +55,22 @@ p.s. [This post](https://blog.streamlit.io/create-a-search-engine-with-streamlit
 
 To summarize, here’s how to build this platform to tag bib numbers in a few steps:
 
-**1. Train a custom object detection model (YOLOV8) to detect bib number**
-**2. Crop the bib number object(s) from original image**
-**3. Use OCR toolkits (PaddleOCR) to recognize the number in each cropped image.**
-**4. Wrap the above steps into a python function and run model inference on cloud (In my case, I'm using GCP Vertex AI instance).**
-**5. Export and save results in a Google Spreadsheet.**
-**6. Build a web service using Streamlit for end-users to respond with the result.**
+**1. Annotate custom data and create datasets for training (using Roboflow)**
+**2. Train a custom object detection model (YOLOV8) to detect bib number**
+**3. Crop the bib number object(s) from original image**
+**4. Use OCR toolkits (PaddleOCR) to recognize the number in each cropped image**
+**5. Wrap the above steps into a python function and run model inference on cloud (In my case, I'm using GCP Vertex AI instance)**
+**6. Export and save results in a Google Spreadsheet**
+**7. Build a web service using Streamlit for end-users to respond with the result**
+
+## Moving forward
+
+There is a lot of work remaining to build a responsive end-to-end web application in real-time. For example:
+
+● Frontend: Create a web interface for users to upload their running race photos.
+● Backend: Use a backend framework (e.g. Node.js) to handle file uploads. Store the uploaded images in a cloud storage service like AWS S3 or GCP Storage.
+● Real-time Updates: Use WebSockets to push updates to the frontend in real-time whenever the model makes a new prediction.
+● Deployment: Containerize application using Docker for easy deployment and scalability. Use an advanced app hosting service like Streamlit in Snowflake or Google App Engine with zero server management and zero configuration deployments.
 
 ## License
 
