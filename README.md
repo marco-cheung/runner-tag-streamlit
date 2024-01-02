@@ -48,7 +48,9 @@ This platform utilizes two main computer vision techniques:
 The main combo of this platform were Streamlit and Google Sheets (for easy collaboration and updates by non-technical users):
 
 **● Step 1: Set up a Google Sheet with your data**
+
 **● Step 2: Use Streamlit to read the data from the Google Sheet**
+
 **● Step 3: Build the user interface and search functionality (e.g. textbox, pagination using buttons) using Streamlit**
 
 p.s. [This post](https://blog.streamlit.io/create-a-search-engine-with-streamlit-and-google-sheets/) motivated me to get my hands dirty to build my app by myself!
@@ -56,11 +58,17 @@ p.s. [This post](https://blog.streamlit.io/create-a-search-engine-with-streamlit
 To summarize, here’s how to build this platform to tag bib numbers in a few steps:
 
 **1. Annotate custom data and create datasets for training (using Roboflow)**
+
 **2. Train a custom object detection model (YOLOV8) to detect bib number**
+
 **3. Crop the bib number object(s) from original image**
+
 **4. Use OCR toolkits (PaddleOCR) to recognize the number in each cropped image**
+
 **5. Wrap the above steps into a python function and run model inference on cloud (In my case, I'm using GCP Vertex AI instance)**
+
 **6. Export and save results in a Google Spreadsheet**
+
 **7. Build a web service using Streamlit for end-users to respond with the result**
 
 ## Moving forward
