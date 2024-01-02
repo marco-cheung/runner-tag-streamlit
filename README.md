@@ -29,7 +29,7 @@ This platform utilizes two main computer vision techniques:
 
 1. **Object Detection**: This technique is used to locate the bounding box of the bib number in the image. It helps to identify and isolate the area of interest in the image.
 
-    A custom YOLOv8 model ([YOLOv8l](https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8l.pt)) is built for object detection. YOLOv8 is a new state-of-the-art computer vision model built by [Ultralytics](https://github.com/ultralytics/ultralytics), it is known for its ability to detect objects in images with high speed and accuracy.
+    A custom YOLOv8 model ([YOLOv8l](https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8l.pt)) is built for object detection. YOLOv8 is a new state-of-the-art (SOTA) computer vision model built by [Ultralytics](https://github.com/ultralytics/ultralytics). This open-source SOTA model is particularly strong in detecting objects in images with high speed and accuracy.
 
     The model was trained on a combination of self-annotated images and multiple public datasets related to bib-number class available on [Roboflow Universe](https://universe.roboflow.com/). These public datasets include:
 
