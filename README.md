@@ -47,17 +47,17 @@ This platform utilizes two main computer vision techniques:
     <img src="https://github.com/marco-cheung/runner-tag-streamlit/blob/main/.streamlit/running-bib-detection.png" alt="Running bib detection" style="margin-top:20px"></img>
     Feel free to check out [here](https://universe.roboflow.com/marco-cheung/bib-number-labeling/model/14) if you also want to get a try on using the custom-trained model API!
 
-2. **Optical Character Recognition (OCR)**: Once bib number area is isolated from each image using YOLOv8, OCR was used to detect and interpret the characters in the cropped bib number image. After comparing results from different open-source OCR models (e.g. [EasyOCR](https://github.com/JaidedAI/EasyOCR), [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR), [Tesseract OCR](https://github.com/tesseract-ocr/tesseract), etc), PaddleOCR turned out to be the best "out-of-the-box" tool with the highest accuracy for bib number recognition in our use case. This allows us to tag hundreds of thousands of images in reliable and efficient way. <br />
+2. **Optical Character Recognition (OCR)**: Once bib number area is isolated from each image using YOLOv8, OCR was used to detect and interpret the characters in the cropped bib number image. After comparing results from different open-source OCR models (e.g. [EasyOCR](https://github.com/JaidedAI/EasyOCR), [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR), [Tesseract OCR](https://github.com/tesseract-ocr/tesseract), etc), PaddleOCR turned out to be the best "out-of-the-box" tool with the highest accuracy for bib number recognition in our use case. This allows us to tag hundreds of thousands of images in reliable and efficient way.
 
-The main combo of this platform were Streamlit and Google Sheets (for easy collaboration and updates by non-technical users):
+<br/>The main combo of this platform were Streamlit and Google Sheets (for easy collaboration and updates by non-technical users):<br/>
 
 **● Step 1: Set up a Google Sheet with your data**
 
 **● Step 2: Use Streamlit to read the data from the Google Sheet**
 
-**● Step 3: Build the user interface and search functionality (e.g. textbox, pagination using buttons) using Streamlit** <br />
+**● Step 3: Build the user interface and search functionality (e.g. textbox, pagination using buttons) using Streamlit**
 
-p.s. [This post](https://blog.streamlit.io/create-a-search-engine-with-streamlit-and-google-sheets/) motivated me to get my hands dirty to build my app by myself! <br />
+<br/>p.s. [This post](https://blog.streamlit.io/create-a-search-engine-with-streamlit-and-google-sheets/) motivated me to get my hands dirty to build my app by myself!<br/>
 
 To summarize, here’s how to build this platform to tag bib numbers in a few steps:
 
