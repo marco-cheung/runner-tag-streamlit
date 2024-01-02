@@ -13,7 +13,7 @@ In a running race, photographers may capture hundreds of thousands of images. Th
 
 As a marathon runner myself, I understand this challenge firsthand. The desire to easily locate and view my own race photos led me to dream of creating a solution - a web application specifically designed to simplify this process for runners. This service uses advanced AI technology to tag photos with the bib numbers of the runners featured in them.
 
-Earlier before, I joined a [half-marathon race in Hong Kong](https://www.hzmb-halfmarathon.com/) and soon realized that it was painful to search and find my photos one-by-one in official photo website (with 21229 photos in total). Therefore, I decided to build on this platform for tagging these race photos. I hope this service not only enhance race experience of runners, but also enable event event organizer to provide a value-added service for runners after the race.
+Earlier before, I joined a [half-marathon race in Hong Kong](https://www.hzmb-halfmarathon.com/) and soon realized that it was painful to search and find my photos one by one (out of 21229 photos) on the official photo website. Therefore, I decided to build on this platform for tagging these race photos. I hope this service not only enhance race experience of runners, but also enable event event organizer to provide a value-added service for runners after the race.
 
 ## Getting Started
 
