@@ -49,6 +49,7 @@ This platform utilizes two main computer vision techniques:
 
 2. **Optical Character Recognition (OCR)**: Once bib number area is isolated from each image using YOLOv8, OCR was used to detect and interpret the characters in the cropped bib number image. After comparing results from different open-source OCR models (e.g. [EasyOCR](https://github.com/JaidedAI/EasyOCR), [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR), [Tesseract OCR](https://github.com/tesseract-ocr/tesseract), etc), PaddleOCR turned out to be the best "out-of-the-box" tool with the highest accuracy for bib number recognition in our use case. This allows us to tag hundreds of thousands of images in reliable and efficient way.
 
+
 The main combo of this platform were Streamlit and Google Sheets (for easy collaboration and updates by non-technical users):
 
 **● Step 1: Set up a Google Sheet with your data**
@@ -56,6 +57,7 @@ The main combo of this platform were Streamlit and Google Sheets (for easy colla
 **● Step 2: Use Streamlit to read the data from the Google Sheet**
 
 **● Step 3: Build the user interface and search functionality (e.g. textbox, pagination using buttons) using Streamlit**
+
 
 p.s. [This post](https://blog.streamlit.io/create-a-search-engine-with-streamlit-and-google-sheets/) motivated me to get my hands dirty to build my app by myself!
 
