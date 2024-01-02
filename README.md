@@ -82,7 +82,7 @@ Having said that OCR method is applied for bib number recognition, cropped bib n
 
 2. Horizontal alignment of bib number
 
-3. Similar-looking characters like '0' vs. 'O', 'R' vs. '8' and 'M' vs. 'A'.
+3. Similar-looking characters like '0' vs. 'O', 'R' vs. '8' and 'M' vs. 'A1'.
 
 In light of these cases, some rules or heuristics have been applied to OCR for performance improvement. For example, only specific characters/digits and bib number length will be processed.
 
