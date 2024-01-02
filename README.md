@@ -76,7 +76,7 @@ To summarize, here’s how to build this platform to tag bib numbers in a few st
 
 There is a lot of work remaining to build an accurate and responsive end-to-end web application in real-time. For example:
 
-● OCR Accuracy: Fine-tune OCR tool (e.g. PaddleOCR), e.g. training a custom OCR tool using more labeled bib number data to make it more robust to different conditions.  
+● OCR Accuracy: Fine-tune pre-trained OCR model (e.g. PaddleOCR). One way is to train a custom OCR tool using more labeled bib number data to make it more robust to different conditions.  
 
 
 ● Frontend: Create a web interface for users to upload their running race photos.
