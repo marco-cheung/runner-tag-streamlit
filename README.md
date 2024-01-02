@@ -75,6 +75,17 @@ This platform utilizes two main computer vision techniques:
 
 **7. Build a web service on Streamlit Community Cloud ((the free hosting and deployment service) for end-users to respond with the result**
 
+## Limitation
+Having said that OCR method is applied for bib number recognition, there are several key constraints to affect recognition quality:
+
+1. Lighting, shooting angle and folding of running bib. Although humans can recognize these numbers, for a computer, these English numbers are distorted and hence, hard to recognize.
+
+2. Horizontal alignment of bib number
+
+3. Similar-looking characters like '0' and 'O', 'R' and '8'. 
+
+For OCR model, some rules or heuristics have been applied to improve the results. For example, only specific characters/digits and bib number length will be processed.
+
 ## Moving forward
 
 There is a lot of work remaining to build an accurate and responsive end-to-end web application in real-time. For example:
