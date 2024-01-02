@@ -59,7 +59,7 @@ To summarize, here’s how to build this platform to tag bib numbers in a few st
 
 **1. Annotate custom data and create datasets for training (using Roboflow)**
 
-**2. Train a custom object detection model (YOLOV8) to detect bib number**
+**2. Train a custom object detection model (YOLOv8) to detect bib number**
 
 **3. Crop the bib number object(s) from original image**
 
