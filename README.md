@@ -55,6 +55,7 @@ The main combo of this platform were Streamlit and Google Sheets (for easy colla
 
 p.s. [This post](https://blog.streamlit.io/create-a-search-engine-with-streamlit-and-google-sheets/) motivated me to get my hands dirty to build my app by myself!
 
+
 To summarize, here’s how to build this platform to tag bib numbers in a few steps:
 
 **1. Annotate custom data and create datasets for training (using Roboflow)**
@@ -76,8 +77,11 @@ To summarize, here’s how to build this platform to tag bib numbers in a few st
 There is a lot of work remaining to build a responsive end-to-end web application in real-time. For example:
 
 ● Frontend: Create a web interface for users to upload their running race photos.
+
 ● Backend: Use a backend framework (e.g. Node.js) to handle file uploads. Store the uploaded images in a cloud storage service like AWS S3 or GCP Storage.
+
 ● Real-time Updates: Use WebSockets to push updates to the frontend in real-time whenever the model makes a new prediction.
+
 ● Deployment: Containerize application using Docker for easy deployment and scalability. Use an advanced app hosting service like Streamlit in Snowflake or Google App Engine with zero server management and zero configuration deployments.
 
 ## License
