@@ -6,7 +6,7 @@ Webapp link: [Runner Tag Platform](https://runner-tag.streamlit.app/)
 
 <img src="https://github.com/marco-cheung/runner-tag-streamlit/blob/main/.streamlit/index_page.png" alt="Streamlit app" style="margin-top:40px"></img>
 
-## Intro
+## 📌 Intro
 This [Streamlit app](https://runner-tag.streamlit.app/) is designed to be a user-friendly and accessible platform for runners. Its primary function is to enable users to search for and view their race photos using bib number search.
 
 In a running race, photographers may capture hundreds of thousands of images. These photos are a valuable memento for the participants, capturing their reviving moments and achievement. However, finding one's own photos amidst such a vast collection can be like looking for a needle in a haystack.
