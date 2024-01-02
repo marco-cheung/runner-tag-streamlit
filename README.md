@@ -59,7 +59,7 @@ This platform utilizes two main computer vision techniques:
 
 <br/>p.s. [This post](https://blog.streamlit.io/create-a-search-engine-with-streamlit-and-google-sheets/) motivated me to get my hands dirty to build my app by myself!<br/>
 
-To summarize, here’s how to build this platform to tag bib numbers in a few steps:
+<br/>To summarize, here’s how to build this platform to tag bib numbers in a few steps:<br/>
 
 **1. Annotate custom data and create datasets for training (using Roboflow)**
 
