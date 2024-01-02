@@ -78,9 +78,12 @@ There is a lot of work remaining to build a responsive end-to-end web applicatio
 
 ● Frontend: Create a web interface for users to upload their running race photos.
 
+
 ● Backend: Use a backend framework (e.g. Node.js) to handle file uploads. Store the uploaded images in a cloud storage service like AWS S3 or GCP Storage.
 
+
 ● Real-time Updates: Use WebSockets to push updates to the frontend in real-time whenever the model makes a new prediction.
+
 
 ● Deployment: Containerize application using Docker for easy deployment and scalability. Use an advanced app hosting service like Streamlit in Snowflake or Google App Engine with zero server management and zero configuration deployments.
 
