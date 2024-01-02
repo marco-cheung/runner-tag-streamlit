@@ -104,10 +104,10 @@ There is a lot of work remaining to build an accurate and responsive end-to-end 
 
 ● Deployment: Containerize application using Docker for easy deployment and scalability. Use an advanced app hosting service like Streamlit in Snowflake or Google App Engine with zero server management and zero configuration deployments.
 
-## License
+## 🪪 License
 
 This project is open source and freely accessible under MIT license.
 
-## Contribution
+## 🖊️ Contribution
 
 If you have suggestions for improvements or want to report a bug, please open an issue. Thank you for your contribution.
