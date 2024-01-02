@@ -19,11 +19,11 @@ Earlier before, I joined a [half-marathon race in Hong Kong](https://www.hzmb-ha
 
 To get started with our platform, simply enter the bib number you're interested in into the search bar, and the application will retrieve all photos where that bib number (partially) appears.
 
-## Demo Video
+## ⚙️ Demo Video
 
 https://github.com/marco-cheung/runner-tag-streamlit/assets/29329279/a63b5465-1eb1-456d-a056-b129473bdaa7
 
-## How It Works
+## 🎯 How It Works
 
 This platform utilizes two main computer vision techniques:
 
@@ -75,7 +75,7 @@ This platform utilizes two main computer vision techniques:
 
 **7. Build a web service on Streamlit Community Cloud ((the free hosting and deployment service) for end-users to respond with the result**
 
-## Limitation
+## ⛔️ Limitation
 Having said that OCR method is applied for bib number recognition, there are several key constraints to affect recognition quality:
 
 1. Lighting, shooting angle and folding of running bib. Although humans can recognize these numbers, for a computer, these English numbers are distorted and hence, hard to recognize.
@@ -86,7 +86,7 @@ Having said that OCR method is applied for bib number recognition, there are sev
 
 For OCR model, some rules or heuristics have been applied to improve the results. For example, only specific characters/digits and bib number length will be processed.
 
-## Moving forward
+## 🛠️ Moving forward
 
 There is a lot of work remaining to build an accurate and responsive end-to-end web application in real-time. For example:
 
