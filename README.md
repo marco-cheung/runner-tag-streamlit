@@ -15,7 +15,7 @@ As a marathon runner myself, I understand this challenge firsthand. The desire t
 
 Earlier before, I joined a [half-marathon race in Hong Kong](https://www.hzmb-halfmarathon.com/) and soon realized that it was painful to search and find my photos one by one (out of 21229 photos) on the official photo website. Therefore, I decided to build on this platform for tagging these race photos. I hope this service not only enhance race experience of runners, but also add value to event organizers by increasing their after-race engagement with runners.
 
-## Getting Started
+## 🏃 Getting Started
 
 To get started with our platform, simply enter the bib number you're interested in into the search bar, and the application will retrieve all photos where that bib number (partially) appears.
 
