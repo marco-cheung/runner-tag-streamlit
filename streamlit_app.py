@@ -212,5 +212,5 @@ st.markdown("""
     <hr style='border: dashed 1px lightgrey; margin-bottom: 0;'>
     <p style='font-size: 13px; text-align: right;'>
     🧩 Creator: <a href='https://github.com/marco-cheung/runner-tag-streamlit' target='_blank'>@marco-cheung</a> <br>
-    📷 Photo Source: Official Organizers</p>
+    📷 Photo Source: Official Organizer / Photographers</p>
 """, unsafe_allow_html=True)
